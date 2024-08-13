@@ -95,36 +95,36 @@ body, html {
 }
 .box.default-img1 {
     width: 350px;
-    background-image: url('../resource/section_1.png');
+    background-image: url('../resource/section_0.png');
 }
 .box.default-img2 {
     width: 350px;
-    background-image: url('../resource/section_2.png');
+    background-image: url('../resource/section_1.png');
 }
 .box.default-img3 {
     width: 350px;
-    background-image: url('../resource/section_3.png');
+    background-image: url('../resource/section_2.png');
 }
 .box.default-img4 {
-    width: 350px;
-    background-image: url('../resource/section_4.png');
+    width: 340px;
+    background-image: url('../resource/section_3.png');
 }
 .box.default-img5 {
     width: 530px;
-    background-image: url('../resource/section_5.png');
+    background-image: url('../resource/section_4.png');
 }
 .box:hover {
-    background-image: url('../resource/section_1_hover.png');
+    background-image: url('../resource/section_0_hover.png');
 }
 .box:hover.default-img2 {
-    background-image: url('../resource/section_2_hover.png');
+    background-image: url('../resource/section_1_hover.png');
 }
 .box:hover.default-img3 {
-    background-image: url('../resource/section_3_hover.png');
+    background-image: url('../resource/section_2_hover.png');
 }
 .box:hover.default-img4 {
-    background-image: url('../resource/section_4_hover.png');
+    background-image: url('../resource/section_3_hover.png');
 }
 .box:hover.default-img5 {
-    background-image: url('../resource/section_5_hover.png');
+    background-image: url('../resource/section_4_hover.png');
 }
