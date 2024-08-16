@@ -89,7 +89,7 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: auto; /* 添加这个属性使文本框内容可滚动 */
     transition: all 0.3s ease; /* 添加平滑过渡效果 */
-    color: #524221; /* 默认字体颜色为黑色 */
+    color: #524221; /* 默认字体颜色 */
 }
 
 .btn-group {

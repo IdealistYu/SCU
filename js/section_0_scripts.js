@@ -2,16 +2,6 @@ function scrollToNextScreen() {
     document.getElementById('screen2').scrollIntoView({ behavior: 'smooth' });
 }
 
-window.addEventListener('wheel', function(event) {
-    if (event.deltaY > 0) {
-        // Scroll down
-        document.getElementById('screen2').scrollIntoView({ behavior: 'smooth' });
-    } else if (event.deltaY < 0) {
-        // Scroll up
-        document.getElementById('screen1').scrollIntoView({ behavior: 'smooth' });
-    }
-});
-
 const textbox = document.getElementById('textbox');
 const toggleLangBtn = document.getElementById('toggleLangBtn');
 const audioBtn = document.getElementById('audioBtn');
@@ -78,7 +68,7 @@ function toggleZoomText() {
 function toggleHighContrast() {
     if (isHighContrast) {
         textbox.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'; // 恢复默认背景色
-        textbox.style.color = '#000'; // 恢复默认文字颜色
+        textbox.style.color = '#524221'; // 恢复默认文字颜色
         isHighContrast = false;
     } else {
         textbox.style.backgroundColor = '#000'; // 高对比度背景色
