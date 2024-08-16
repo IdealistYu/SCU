@@ -4,12 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>通琴达礼</title>
-    <link rel="stylesheet" href="css/styles_section.css">
+    <link rel="stylesheet" href="css/section_0_styles.css">
 </head>
 <body>
     <div class="screen screen1" id="screen1">
         <div class="content-container">
             <img src="resource/section_0_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox">Loading...</div>
+                <div class="btn-group">
+                    <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
+                    <div class="dropdown" id="audioDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="playAudio('chinese')">播放中文语音</button>
+                            <button onclick="playAudio('english')">播放英文语音</button>
+                        </div>
+                    </div>
+                    <img src="resource/audio.png" id="audioBtn" alt="播放语音">
+                    <div class="dropdown" id="moreDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="toggleZoomText()">放大镜</button>
+                            <button onclick="toggleHighContrast()">高对比度</button>
+                            <button onclick="backgroundMusic()">背景音乐</button>
+                        </div>
+                    </div>
+                    <img src="resource/more.png" id="moreBtn" alt="更多">
+                </div>
+            </div>
             <div class="arrow_body" onclick="scrollToNextScreen()">
                 <div class="arrow"></div>
                 <div class="arrow"></div>
@@ -19,6 +40,6 @@
     </div>
     <div class="screen screen2" id="screen2">
     </div>
-    <script src="js/scripts_section.js"></script>
+    <script src="js/section_0_scripts.js"></script>
 </body>
 </html>

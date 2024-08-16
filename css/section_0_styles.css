@@ -1,0 +1,137 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.screen2 {
+    background-image: url('../resource/background.png');
+}
+.content-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.arrow_body {
+    position: absolute;
+    display: flex;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(-90deg);
+    cursor: pointer;
+    z-index: 20;
+}
+.home-image {
+    width: 100%;
+    height: 100%;
+}
+.arrow {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid #000;
+    border-left: 4px solid #000;
+    transform: rotate(-45deg);
+    animation: arrow_load 2s infinite;
+}
+.arrow:nth-child(1) {
+    left: 15px;
+    animation-delay: -0.4s;
+}
+.arrow:nth-child(2) {
+    animation-delay: -0.2s;
+}
+.arrow:nth-child(3) {
+    right: 15px;
+}
+@keyframes arrow_load {
+    0% {
+        opacity: 0;
+        transform: rotate(-45deg) translate(30px, 30px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-45deg) translate(-30px, -30px);
+    }
+}
+
+
+.container {
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* 确保文本框在所有组件的前面 */
+}
+
+#textbox {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* 添加这个属性使文本框内容可滚动 */
+    transition: all 0.3s ease; /* 添加平滑过渡效果 */
+    color: #524221; /* 默认字体颜色为黑色 */
+}
+
+.btn-group {
+    position: absolute;
+    top: -50px; /* 提升按钮组的位置 */
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 34px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-content {
+    padding: 10px;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #f0f0f0;
+}
