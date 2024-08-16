@@ -31,21 +31,21 @@
             line-height: 1.6;
             border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.7);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-group {
             position: absolute;
-            top: -40px; /* 提升按钮组的位置 */
+            top: -50px; /* 提升按钮组的位置 */
             right: 0;
             display: flex;
             gap: 10px;
         }
 
         .btn-group img {
-            width: 24px;
-            height: 24px;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
         }
 
@@ -84,14 +84,14 @@
     <div class="container">
         <div id="textbox">Loading...</div>
         <div class="btn-group">
-            <img src="toggle_language.png" id="toggleLangBtn" alt="切换语言">
+            <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
             <div class="dropdown" id="audioDropdown">
                 <div class="dropdown-content">
                     <button onclick="playAudio('chinese')">播放中文语音</button>
                     <button onclick="playAudio('english')">播放英文语音</button>
                 </div>
             </div>
-            <img src="audio.png" id="audioBtn" alt="播放语音">
+            <img src="resource/audio.png" id="audioBtn" alt="播放语音">
             <div class="dropdown" id="moreDropdown">
                 <div class="dropdown-content">
                     <button onclick="zoomText()">放大镜</button>
@@ -99,7 +99,7 @@
                     <button onclick="backgroundMusic()">背景音乐</button>
                 </div>
             </div>
-            <img src="more.png" id="moreBtn" alt="更多">
+            <img src="resource/more.png" id="moreBtn" alt="更多">
         </div>
     </div>
 
@@ -125,7 +125,7 @@
         toggleLangBtn.addEventListener('click', () => {
             isChinese = !isChinese;
             loadContent();
-            toggleLangBtn.src = isChinese ? 'toggle_language.png' : 'toggle_language_eng.png';
+            toggleLangBtn.src = isChinese ? 'resource/toggle_language.png' : 'resource/toggle_language_eng.png';
         });
 
         audioBtn.addEventListener('click', (event) => {
@@ -150,7 +150,7 @@
         }
 
         function playAudio(language) {
-            const audioFilePath = language === 'chinese' ? 'resource/audio_chinese.mp3' : 'resource/audio_english.mp3';
+            const audioFilePath = language === 'chinese' ? 'resource/序厅.m4a' : 'resource/audio_english.mp3';
             const audio = new Audio(audioFilePath);
             audio.play();
         }
@@ -167,7 +167,7 @@
         }
 
         function backgroundMusic() {
-            const bgMusic = new Audio('resource/序厅.m4a');
+            const bgMusic = new Audio('resource/《诗经·周南·关雎》——诗经首篇的古老恋歌.mp3');
             bgMusic.loop = true;
             bgMusic.play();
         }
