@@ -50,7 +50,7 @@ function hideAllDropdowns() {
 }
 
 function playAudio(language) {
-    const audioFilePath = language === 'chinese' ? 'resource/序厅.m4a' : 'resource/audio_english.mp3';
+    const audioFilePath = language === 'chinese' ? 'resource/序厅.m4a' : 'resource/前言.mp3';
     const audio = new Audio(audioFilePath);
     audio.play();
 }
