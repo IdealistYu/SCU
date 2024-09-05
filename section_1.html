@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天人合一</title>
+    <link rel="stylesheet" href="css/section_styles.css">
+</head>
+<body>
+    <div class="screen screen1" id="screen1">
+        <div class="content-container">
+            <img src="resource/section_1_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox">Loading...</div>
+                <div class="btn-group">
+                    <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
+                    <div class="dropdown" id="audioDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="playAudio('chinese')">播放中文语音</button>
+                            <button onclick="playAudio('english')">播放英文语音</button>
+                        </div>
+                    </div>
+                    <img src="resource/audio.png" id="audioBtn" alt="播放语音">
+                    <div class="dropdown" id="moreDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="toggleZoomText()">放大镜</button>
+                            <button onclick="toggleHighContrast()">高对比度</button>
+                            <button onclick="backgroundMusic()">章节配乐</button>
+                        </div>
+                    </div>
+                    <img src="resource/more.png" id="moreBtn" alt="更多">
+                </div>
+            </div>
+            <div class="arrow_body" onclick="scrollToNextScreen()">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="screen screen2" id="screen2">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <div class="image-box">
+                <a href="section_1_1.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_1_1_1.png" alt="左侧图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">自然礼乐 祭祀天地</div>
+                <div class="text-box">
+                    <p>最早的乐是原始宗教祭祀活动中的一种辅助仪式，古人以“乐”的形式将“颂神娱神”祭祀于神。周公制礼时，将乐作为人们在宗庙、族长乡里和闺门之内沟通情感的基本方式。考古发现，西周中期以后青铜礼器的组合形式稳定而规范，是西周礼乐制度成熟，通过乐悬制度和列鼎制度等体现等级秩序、礼仪规范和道德教化等方面，共同体现了中国古代的礼乐文明。
+                        </p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_1_2.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_1_2_2.png" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">礼乐大成 至圣先师</div>
+                <div class="text-box">
+                    <p>孔子继承和弘扬了周公的礼乐文化，认为礼乐在维护社会和谐、陶冶人们性情方面发挥着重要作用。“乐”代表“进取”，“礼”则代表“固守”，两者相辅相成，共同构成了儒家思想的重要组成部分。他创办私学，广收门徒，传授“六艺”，通过讲解、示范和实践等多种方式，使学生们能够深刻理解礼乐文化的内涵和价值。从西汉时期开始，孔子及其学说逐渐被官方所重视。汉代设太学为中央官学，以传授儒家经典为主。汉武帝时期实行“罢黜百家，独尊儒术”的政策，使得儒学成为官方正统思想。儒学经学化趋势加强，儒家经典成为学校教育的主要内容。在这个过程中，孔子逐渐被赋予了“至圣先师”的尊称。</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_1_2.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_1_3_4.jpg" alt="右侧图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">释奠礼乐 寰宇同祭</div>
+                <div class="text-box">
+                    <p>祭孔，是华夏民族为了尊崇与怀念至圣先师孔子，而主要在孔（文）庙举行的隆重祀典，两千多年来从未间断，祭孔大典在古代被称作“国之大典”。祭祀主要在音乐、舞蹈、歌声的伴随下进行。
+                        古代中国周边国家多崇尚儒学，日本、韩国、越南等亦有祭孔。日本、韩国、新加坡至今每年都会有大型祭孔仪式。
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/section_1_scripts.js"></script>
+</body>
+</html>
