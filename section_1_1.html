@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自然礼乐 祭祀天地</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_1_1_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">骨笛，贾湖骨笛是迄今为止中国考古发现的最古老的乐器。
+                该骨笛是用鹤类尺骨管制成。磨制精细，7孔。在第六孔与第七孔之间有一小孔，经测音可以发两变音，应为调整第七孔发音而钻的调音孔。值得注意的是，该墓出土有两件形制相似的骨笛。据测音研究，它们是一雌一雄，印证了中国自古雌雄笛的传统。
+                此笛经试奏，证明是一种竖吹骨笛，也是后世竖笛或洞箫类乐器的祖型。当时的人们利用此笛吹奏出有节奏的音符，以此表达对生活的感受和对神灵的尊敬
+                </p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_1_1_1.png",
+                description: "骨笛，贾湖骨笛是迄今为止中国考古发现的最古老的乐器。该骨笛是用鹤类尺骨管制成。磨制精细，7孔。在第六孔与第七孔之间有一小孔，经测音可以发两变音，应为调整第七孔发音而钻的调音孔。值得注意的是，该墓出土有两件形制相似的骨笛。据测音研究，它们是一雌一雄，印证了中国自古雌雄笛的传统。此笛经试奏，证明是一种竖吹骨笛，也是后世竖笛或洞箫类乐器的祖型。当时的人们利用此笛吹奏出有节奏的音符，以此表达对生活的感受和对神灵的尊敬。"
+            },
+            {
+                src: "resource/section_1_1_2.png",
+                description: "铜铃，平面呈近椭圆形，形如两片瓦片相合，铃身一侧设置扉棱，铃腔内放置铃舌，铃舌呈圆柱状，颜色有绿色、白色两种，材质有玉、石英两类，铃、舌碰撞发声。考古专家认为，这与后世的青铜乐钟常见的合瓦形结构颇为相似，或许是青铜乐钟的雏形。二里头铜铃的使用者都是级别较高的贵族阶层，彰显其身份与职能的铜铃也因此成为二里头文明的象征性器物。"
+            },
+            {
+                src: "resource/section_1_1_3.png",
+                description: "杜岭二号方鼎，商朝乳钉纹方鼎，1974年出土于河南郑州杜岭郑州商城，共有两件，又名乳丁纹青铜方鼎、杜岭方鼎，河南博物院所藏是杜岭二号。杜岭方鼎是已知的年代最早、体量最大、铸造最为完美、保存最为完整的青铜重器，是中国在青铜时代所创造的第一座青铜文明纪念碑。"
+            },
+            {
+                src: "resource/section_1_1_4.png",
+                description: "回字纹铜铙，一组三件，最大的铙通高20.5厘米；中铙通高17厘米；最小的铙通高14.5厘米。1968年河南省焦作市温县小南张村出土。经过专家对铜铙的正面鼓部的测音，这组“回字纹铜铙”为三声宫调式，即调式结构为：宫—角—徵。铙是一种击奏钟体体鸣乐器，是我国最早使用的青铜打击乐器之一。商代以后，殷墟以外的地区，成组的编铙较为罕见，而铙的形体愈演愈大，不便于执把，只能立在那里敲了。于是，大铙逐渐就被人们挂起来敲打，大约在西周的中期就演变成为钟。"
+            },
+            {
+                src: "resource/section_1_1_5.png",
+                description: "铜铙，1976年安阳殷墟妇好墓出土，一套5件，形制、花纹相同，大小依次递减，铙体呈扁桶形，最大的两件口内壁有铭文“亚弜”。该组器物对研究商代晚期的铸造技术、礼仪制度、音乐史均有重要的价值。"
+            },
+            {
+                src: "resource/section_1_1_6.png",
+                description: "骨排箫，由13根长短递减的禽类腿骨制成，最长管32.7厘米，最短管11.8厘米，1997年河南省鹿邑太清宫长子口墓出土。墓中出土的4件骨排箫，1件石磬，2件编铙，是这一时期音乐考古的重大发现。"
+            },
+            {
+                src: "resource/section_1_1_7.png",
+                description: "虢季列鼎列簋，1990年出土于河南省三门峡市虢国墓(虢季墓)，属西周晚期器物，距今2800年。列鼎一组7件，形制、纹饰与铭文均相同，大小依次递减。其中，最大者通高39.8厘米、口径44.2厘米；最小者通高25.4厘米、口径28.6厘米。鼎内侧壁有铭文四行十八个字（其中“子子孙孙”为重复字），铭文内容为：“虢季乍(作)宝鼎，季氏其万年子（子）孙（孙），永保用亯(享)”。"
+            },
+            {
+                src: "resource/section_1_1_8.png",
+                description: "鼎，虢仲列鼎1990年出土于三门峡虢国墓地M2009虢仲墓。一组七件。形制、纹样及铭文相同，大小相对依次递减。口微敛，宽沿，方唇，立耳，半球状腹，圜底。蹄足中段较细，下端逐渐外展而宽大，内侧有一道纵向凹槽。口沿下饰一周C形平目窃曲纹，腹部饰一周变形凤鸟纹，在两种纹样之间界以一道凸弦纹，耳外侧面饰有珠重环纹。内壁有竖款铭文二行五字，自右至左为：虢仲作旅鼎。由铭文得知，该组列鼎是墓主人虢仲的自作用器。"
+            },
+            {
+                src: "resource/section_1_1_9.png",
+                description: "编钟，新郑郑国祭祀遗址1号坑郑国东周祭祀遗址编钟，青铜乐器，春秋中期。镈钟 4件：通高34.40～25.80厘米；铣长27.30～20.70厘米；舞修18.70～14.40厘米。钮钟20件： 通高29.10～14.10；铣长23.70～11.20 ；舞修13.50～6.30厘米。1996年河南省新郑郑国祭祀遗址出土。钟悬规则一致，为二十件钮钟和四件镈钟的编列组合。对于研究春秋郑国一带编钟的制作、音乐性能和礼乐制度具有重要意义。"
+            },
+            {
+                src: "resource/section_1_1_10.png",
+                description: "九鼎八簋，这套鼎簋于1996年出土于河南省新郑市郑韩故城东城郑国祭祀遗址，包括9件螭纹铜鼎和8件窃曲纹铜簋。鼎敞口，折沿，立耳外撇，圜底，腹部饰蟠螭纹、绹索纹，形制、纹饰相同，大小依次递减；簋盖有圆形捉手，器身有子口，鼓腹，圜底，饰窃曲纹、瓦纹、垂鳞纹，两侧捉手饰涡纹、蟠螭纹，形制、纹饰、大小均相同。"
+            },
+            {
+                src: "resource/section_1_1_11.png",
+                description: "曾侯乙编钟，曾侯乙编钟，1978年出土于湖北随州曾侯乙墓，年代为战国早期。钟架长7.48米、高2.65米。全套编钟共六十五件，分三层八组悬挂在呈曲尺形的铜木结构钟架上，上层为三组共19件钮钟、中下层五组共45件甬钟，及一件楚惠王赠送给曾侯乙的镈钟所组成。钟及架、钩上共有铭文3755字，内容为编号、记事、标音及乐律理论。每件钟均能奏出呈三度音程的双音，整套编钟音域可跨五个半八度，中心音区十二个半音齐备，能演奏五声、六声或七声音阶的乐曲。"
+            },
+            {
+                src: "resource/section_1_1_12.png",
+                description: "陈仓石鼓，627年发现于凤翔府陈仓境内的陈仓山（今陕西省宝鸡市石鼓山）。石鼓共十只，高二尺，直径一尺多，形象鼓而上细下粗顶微圆（实为碣状），十个花岗岩材质的石鼓每个重约一吨，在每个石鼓上面都镌刻 “石鼓文”（大篆），因铭文中多言渔猎之事，故又称它为 《猎碣》 。石鼓文记述了秦始皇统一前一段为后人所不知的历史，是中国最早的石刻诗文，乃篆书之祖。自明清以来，一字抵万金，创下中国文物史上的奇迹，中国九大镇国之宝之一。"
+            },
+            {
+                src: "resource/section_1_1_13.jpg",
+                description: "The Divje Babe Flute. A Bear femur bone The spacing between the holes matches present diatomic scale (5) At present there is still an official dispute over whether the holes were man-made or not, but the evidence points strongly in favour of the idea that this is the earliest yet discovered evidence of a musical instrument in the world. It was found in a Neanderthal setting making it the only one of its kind, with all others being associated with Homo sapiens."
+            },
+            {
+                src: "resource/section_1_1_14.jpg",
+                description: "The Hohle Fels Flute. The worlds oldest confirmed bone-flute at present. A 5-holed, flute with a V-shaped mouthpiece. Found with fragments of mammoth-ivory flutes."
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

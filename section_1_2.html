@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>礼乐大成 至圣先师</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_1_2_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">孔子徒人图漆衣镜，孔子屏风上面还镶嵌着一面铜镜，实际上是一款集屏风、衣镜为一体的镜屏。衣镜四周的漆木边框上绘制了东王公、西王母以及青龙、白虎、朱雀、玄武的四神图，方镜嵌于边框之中。衣镜背面是漆木屏板，形状近似屏风，上面绘有孔子、颜回等人的图像和传记，这也是迄今为止世界上留存的最早的孔子画像。</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_1_2_1.png",
+                description: "孔子徒人图漆衣镜，孔子屏风上面还镶嵌着一面铜镜，实际上是一款集屏风、衣镜为一体的镜屏。衣镜四周的漆木边框上绘制了东王公、西王母以及青龙、白虎、朱雀、玄武的四神图，方镜嵌于边框之中。衣镜背面是漆木屏板，形状近似屏风，上面绘有孔子、颜回等人的图像和传记，这也是迄今为止世界上留存的最早的孔子画像。"
+            },
+            {
+                src: "resource/section_1_2_2.png",
+                description: "孔子见老子壁画，东平汉墓出土，年代为西汉晚期至新莽时期，彩色壁画色彩艳丽，特点鲜明，孔子为布衣，推测当时老百姓心目中，孔子就是一位普通布衣学者。"
+            },
+            {
+                src: "resource/section_1_2_3.png",
+                description: "孔子见老子，嘉祥县出土，凸面线刻。画面共分两层：上层为孔子见老子图象。自左依次列14人，孔子、老子之间一小儿是神童项橐。画面映证早在汉代孔子的故事就已广为流传了。下层为车马出行图。"
+            },
+            {
+                src: "resource/section_1_2_4.png",
+                description: "吴道子绘宣圣遗像碑，孔子恭身而立，双手前伸上举，作“天揖之势”，凸显贵为“万世师表”而彬彬有礼之圣洁丰姿，被古今画界赞叹为“神来之笔”。因此也被孔氏世代敬奉为家族最神圣信物之一，历由嫡长一脉恭藏传承。孔子第四十八代嫡长孙、衍圣公孔端友“扈跸南渡”舍家而恭负至衢州，为后世永久铭记祖容，传承祖风，据此立先圣遗像碑。刻像为衣冠剑佩、有温而厉、威而不猛、恭而安之之态。碑额刻“德配天地，道冠古今，删述六经，垂宪万世”十六字，碑右下刻“扈跸南渡四十七世孙兵部侍郎传、四十八世袭封衍圣公端友敬立”。"
+            },
+            {
+                src: "resource/section_1_2_5.png",
+                description: "吴道子绘孔子行教像，《先师孔子行教像》为吴道子所作，画中孔子雍容大度，身体稍稍前倾，双手作揖，谦卑有礼。孔子头扎儒巾，双目前视，须发飘逸，透出圣人的智慧。作品用笔提按流转之间表现了画家娴熟的技法。画面上方题写：先师孔子行教像；右上方题写：德侔天地，道冠古今，删述六经，垂宪万世；左下方落款：吴道子笔，并加盖一方印章。"
+            },
+            {
+                src: "resource/section_1_2_6.png",
+                description: "圣行颜随像，又称“圣行颜随像”，石刻下题“先圣画像”，“宋政和戊戌上元日四十九代孙孔口立石，胡口刻”。"
+            },
+            {
+                src: "resource/section_1_2_7.png",
+                description: "宣圣及七十二圣贤像，由宋高宗赵构于绍兴二十六年（1156）敕令立石于国子监。刻石以宋高宗御制小楷序文始，下及孔子与七十二弟子御书赞辞，以白描阴线单刻的手法呈现人物图像，线条紧劲连绵，气息文雅，传为李公麟所绘。刻石制作精良，其图式更成为明代及以后诸多孔子及弟子圣贤像效法的范本。"
+            },
+            {
+                src: "resource/section_1_2_8.png",
+                description: "孔子像，现存最早的绢本孔子像，人物衣纹用笔为钉头鼠尾法，线长而劲利。孔子身着长袍,拱手而立,沉静肃穆，若有所思，神情十分生动。全图用秃笔写衣纹，简练概括，线条劲拔，寥寥数笔，形神毕现，设色浅淡，韵味高雅。"
+            },
+            {
+                src: "resource/section_1_2_9.png",
+                description: "孔子夫妇楷木像，孔子像高37.2厘米，头戴平顶巾，上棱有两豁口，帽口沿雕圆珠纹两周，两眼外突，鼻高大，合口，下垂三绺胡须，两耳后仰。身穿宽袖长袍，腰下有台纹，双手合抱，中有扁方孔，孔中物已残缺。孔子夫人像高41.2厘米， 头挽高髻，髻前后有一圆立孔，孔中物已残掉。长圆形脸，身穿圆领长袍，双手合抱于袖内。右耳稍残，面部有裂纹。"
+            },
+            {
+                src: "resource/section_1_2_10.png",
+                description: "孔子燕居像，绢本设色，绘孔子半身燕居之像。“燕居”是指一种闲居在家的状态，画中孔子头着蓝色巾帻，身穿交领蓝缘、皂色大袖袍，内着白色中单。双手合抱，目光左视，宽鼻大耳，唇齿显露，眉须舒展，面部皱纹贴合肌肉走向。"
+            },
+            {
+                src: "resource/section_1_2_11.png",
+                description: "名人画像册，明代闵儒江环于明神宗万历十三年（1585年）十一月初一所作。每页绘一人物，共有22人。所绘人物主要有孔子以及孔门弟子、唐宋两代儒学代表人物，即孔庙附享人物。分别是：颜回、曾参、孔伋、孟子、闵损、冉雍、端木赐、仲由、卜商、冉耕、宰予、冉求、言偃、颛孙师、朱熹、韩愈、邵雍、程颢、程颐、司马光、张载。每页人物画像配有正书，内容为宋代御制以及朱熹所题颂赞。"
+            },
+            {
+                src: "resource/section_1_2_12.png",
+                description: "孔子像，清代果亲王允礼于清雍正十二年(1734)，送达赖喇嘛回西藏，途经西安时在西安碑林刻立的。此像属线刻，把人物勾画得栩栩如生。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>
