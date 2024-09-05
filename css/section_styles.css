@@ -251,4 +251,5 @@ body, html {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* 添加阴影 */
     border-radius: 5px; /* 圆角效果 */
     margin-top: 20px;
+    text-align: justify;
 }

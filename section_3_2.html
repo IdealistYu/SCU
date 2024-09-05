@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本于昏</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_3_2_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">红绸绣龙凤同合纹盖头
+                </p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_3_1_1.jpg",
+                description: "红绸绣龙凤同合纹盖头"
+            },
+            {
+                src: "resource/section_3_2_2.jpg",
+                description: "金双喜如意"
+            },
+            {
+                src: "resource/section_3_2_3.jpg",
+                description: "嵌宝石桃皮马鞍"
+            },
+            {
+                src: "resource/section_3_2_4.jpg",
+                description: "青玉合卺杯"
+            },
+            {
+                src: "resource/section_3_2_5.jpg",
+                description: "盛装子孙饽饽的剔红龙凤同合纹盒"
+            },
+            {
+                src: "resource/section_3_2_6.png",
+                description: "清金箔贴花花轿（万工轿），此轿木质雕花，朱漆铺底饰以金箔贴花，轿上采用圆雕、浮雕、透雕等三种工艺手法进行装饰。轿顶上是锡制的立体形盛开的莲花，轿上雕有250个人物、花鸟虫兽。这顶轿子的结构前后左右对称，雕有24只凤凰，38条龙，54只仙鹤，74只喜鹊，92只狮子和124处石榴百子等。还有一组组圆雕人物，组成的戏曲场景。如《浣纱记》、《天水关》、《铁弓缘》、《水浒传》、《西厢记》、《荆钗记》、《拾玉镯》等。轿子的中段地方还辅以镜片玻璃画，每一幅彩绘画上也都是一个古典名剧片段。此轿子由几百片可拆卸的花板组成，没有特设的轿门。轿子上没有一枚钉子，都用榫卯结构联结。长轿杠二根，朱红漆圆角方杠，通体光素，有双孔。（插杠用），两端阳刻楷书“聚成號大鸿福轿”，短轿杠二根，朱红漆，通体光素，圆角长方杠，横连杠一根，两端楔口，中央阳刻填金彩楷书：“大鸿福”。长杠，592厘米，短杠长219厘米"
+            },
+            {
+                src: "resource/section_3_2_7.png",
+                description: "“求”字帖，“求”字帖，对开中堂式，褐色地，套印墨银双色，帖面印百子图，背印麒麟送子图，帖心印银色“求”字，左右书“天缘合配，百年偕老”喜对。"
+            },
+            {
+                src: "resource/section_3_2_8.png",
+                description: "妆花绸龙凤纹霞帔，《清稗类钞》记载：“霞帔，妇人礼服也，明代九品以上命妇皆用之。以庶人婚嫁，得假用九品服，……沿至本朝，汉族妇女亦仍以此为重，非朝廷所特许也……”，可见明清之际，朝廷允许普通人家的女子婚嫁时“假借”命妇霞帔的样子作婚嫁服。近世的命妇礼服霞帔多有流传，这件婚礼霞帔得以让我们了解霞帔作为婚礼服在民间使用的实例，从中亦可见清代汉族的婚嫁习俗。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

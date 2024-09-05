@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>君子之成</title>
+    <link rel="stylesheet" href="css/section_styles.css">
+</head>
+<body>
+    <div class="screen screen1" id="screen1">
+        <div class="content-container">
+            <img src="resource/section_2_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox">Loading...</div>
+                <div class="btn-group">
+                    <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
+                    <div class="dropdown" id="audioDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="playAudio('chinese')">播放中文语音</button>
+                            <button onclick="playAudio('english')">播放英文语音</button>
+                        </div>
+                    </div>
+                    <img src="resource/audio.png" id="audioBtn" alt="播放语音">
+                    <div class="dropdown" id="moreDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="toggleZoomText()">放大镜</button>
+                            <button onclick="toggleHighContrast()">高对比度</button>
+                            <button onclick="backgroundMusic()">章节配乐</button>
+                        </div>
+                    </div>
+                    <img src="resource/more.png" id="moreBtn" alt="更多">
+                </div>
+            </div>
+            <div class="arrow_body" onclick="scrollToNextScreen()">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="screen screen2" id="screen2">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <div class="image-box">
+                <a href="section_2_1.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_2_1_5.jpg" alt="左侧图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">兴于诗 发于情</div>
+                <div class="text-box">
+                    <p>朱熹注“兴”为“感发意志”，即兴发一个人的道德生命。《诗》中记载大量的心性体悟与生活情感。读《诗》让人情动于中，有感而发，豁醒真实的道德体悟与人生修养，故孔子曰“诗言志”，“兴于诗”。</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_2_2.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_2_2_2.jpg" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">立于礼 寓于物</div>
+                <div class="text-box">
+                    <p>孔子的终极理想是“仁”这一涵括一切具体道德的最高境界，而对于“仁”，孔子也将其置于礼的控制之下。子曰：“克己复礼为仁”，进而又说“非礼勿视，非礼勿听，非礼勿言，非礼勿动”，不仅用礼框定仁，而且用礼指导与掌握仁的求索与践行，君子以“仁”为最终目标，故孔子曰“立于礼”。
+                        礼规范道德仁义，德以礼为其本质内涵，礼亦具有道德化的倾向，故君子修仁义礼智信，重道尊德，以“和”为贵。
+                        </p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_2_3.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_2_3_1.png" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">成于乐 入于心</div>
+                <div class="text-box">
+                    <p>《乐》之魂在“和”与“悦”。“从心所欲不逾矩”谓之和，“喜怒哀乐之未发，谓之中；发而皆中节，谓之和”。故“和”者，圣贤之至善化境也。“乐”者，悦也，“发愤忘食，乐以忘忧，不知老之将至”之谓也。乐者，美之化身也，美之化身即心性之化身也。故可透过乐而悟心性之美，也可以乐为入心性之门。最能表现心性之完美者，最能表现心性之极乐（圆满之幸福、无上之快乐）者，无过于乐也。故君子之成在于乐。
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/section_2_scripts.js"></script>
+</body>
+</html>

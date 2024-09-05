@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立于礼 寓于物</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_2_2_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">“事君子”玉印，尺寸：面径1.65厘米，高1.3厘米；出土信息：1992年12月西工区C1M3943针织厂
+                </p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_2_2_1.jpg",
+                description: "“事君子”玉印，尺寸：面径1.65厘米，高1.3厘米；出土信息：1992年12月西工区C1M3943针织厂"
+            },
+            {
+                src: "resource/section_2_2_2.jpg",
+                description: "玉螭纹韘形佩，玉为青色。大致呈片状，中间有一孔，孔外周镂雕螭纹。这种造型的佩中间酷似鸡心形，故亦称鸡心佩，是从古人射箭时保护手指的韘形器演化而来。古人配韘表示其有高超的射杀技能及处理事务的决策能力。韘形佩盛行于汉代，宋代开始出现大量的仿制品。在宋、元时期的著录中将其称为“螭玦”，并称有多种式样。《诗经•卫风》也有“艽兰之叶，童子配韘”之句。"
+            },
+            {
+                src: "resource/section_2_2_3.png",
+                description: "七璜联珠组玉佩，这件七璜联珠组玉佩由七件大小递增的玉璜由上到下，由小到大依次递增，各璜之间以左右对称的双排两行玛瑙与琉璃串珠连缀而成。其上与一组以长方形或长条圆形玉管间以双行玛瑙珠组成的项饰相联，挂于颈上，而达于腹下。七件玉璜的纹饰以形态各异的龙纹或人龙合雕体纹为主，这组玉佩是目前所能见到的周代组玉佩中形制与联缀方式最为规范完备的一组。"
+            },
+            {
+                src: "resource/section_2_2_4.png",
+                description: "玉组佩，1993年曲沃县北赵村出土。出于晋侯墓地63号墓。由玉璜、玉珩、玉管、料珠、玛瑙管等组成，共有204件。整个玉组佩展开长达2米，纹饰多用双勾技法，工艺精湛。下端2件玉雁昂首展翅，生动活泼。"
+            },
+            {
+                src: "resource/section_2_2_5.jpg",
+                description: "翠竹节式佩，佩翠质绿色，局部色较深。佩为长方形，以竹枝为边框，底部镂雕成山石，上有灵芝，中部镂雕出竹叶及竹枝。此佩之翠色与竹之天然色泽较为接近，作者以竹为题材，体现出设计的精妙。佩上部系黄丝绳，上有珊瑚结珠，两端各有米珠一组。翠玉象征君子之德，而竹又为梅、兰、菊、竹 “四君子”之一，此佩恰合皇帝自喻为仁政之君之意。"
+            },
+            {
+                src: "resource/section_2_2_6.jpg",
+                description: "“残雷”琴，琴背面龙池之上刻楷书“残雷”二字，其下刻有行楷三十五字：“破天一声挥大斧，干断柯析皮骨腐。纵作良材遇己苦，遇己苦，呜咽哀鸣莽终古。谭嗣同作。”均填以石绿。诗左下方刻长方形朱文印，篆“壮飞”二字。楷书腹款：浏阳谭嗣同复生甫监制霹雳琴第弍光绪十六年。“残雷”诗见于谭嗣同手稿《秋雨年华之馆从脞书》中，光绪十六年(1890年)，谭嗣同只有25岁。"
+            },
+            {
+                src: "resource/section_2_2_7.png",
+                description: "“白马作”毛笔，白马作”毛笔在1972年出土于甘肃武威磨嘴子的49号汉墓，出土时毛笔在墓主人头部的左侧，考古学家推测墓主人应是“簪笔”入殓。“白马作”毛笔笔芯与锋用紫黑色硬毛，刚柔并济，体现了“笔之四德”，即尖、齐、圆、健。古人对制笔的四种要求，何尝又不是为人处世的哲学。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

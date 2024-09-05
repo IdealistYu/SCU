@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成于乐 入于心</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_2_3_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">碧玉描金编磬，《论语·宪问》第十四，“子击磬于卫”故事磬体规整平阔，类似木匠用的曲尺，只是倨句角度为钝角而非直角。磬的长边为鼓，短边为股，即《周礼·考工记》中所记载的“股二鼓三”。股侧镌刻制作年款“乾隆二十九年制”，鼓侧则镌刻各自的律名。鼓股相交处钻有圆孔，用以穿系明黄色绦绳悬挂，以备敲击发声。                
+                </p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_2_3_1.jpg",
+                description: "碧玉描金编磬，《论语·宪问》第十四，“子击磬于卫”故事磬体规整平阔，类似木匠用的曲尺，只是倨句角度为钝角而非直角。磬的长边为鼓，短边为股，即《周礼·考工记》中所记载的“股二鼓三”。股侧镌刻制作年款“乾隆二十九年制”，鼓侧则镌刻各自的律名。鼓股相交处钻有圆孔，用以穿系明黄色绦绳悬挂，以备敲击发声。"
+            },
+            {
+                src: "resource/section_2_3_2.jpg",
+                description: "彩绘圣迹图册页——学琴师襄图，“学琴师襄”画面中表现的是孔子向师襄学习琴艺的场景，画面中孔子在树下鼓琴，师襄子对面而坐，众人聆听琴曲，童子在旁侍备茶饭。画面左上角有文及赞，文曰：“孔子学琴于师襄，十日不进，师襄子曰：“可以益进矣。”孔子曰：“未得其数也。”有间，曰：“可以益矣。”曰：“未得其志也。”有间，曰：“可以益矣。”曰：“未得其为人也。”有间日，有所穆然深思焉，有所怡然，高望而远志焉，曰：“丘得其人。黯然而黑，欣然而长，眼如望羊，非文王其谁能焉此也！”襄子辟席再拜，曰：“师盖云《文王操》也。”赞曰：“圣无不知，师襄子为师，曰取其专，以操乃微，得数得志，复得其人，声入心通，大哉圣神。”"
+            },
+            {
+                src: "resource/section_2_3_3.png",
+                description: "曾侯乙彩绘漆瑟，1978年随县曾侯乙墓中43出土呈长方体，尾部略收成弧形，中空为共鸣箱。面板微拱，首端横亘首岳一条，尾端平行尾岳共三条。岳山前共有25个弦孔；有插立的拴弦木柱共4个。底板两端部有首越与尾越，两越间由一狭长槽相连。通体以红漆为地，用黑、黄和少量银灰色漆彩绘纹饰。尾部以浮雕饕餮纹为主体，其上又雕出精细的龙、蛇。正中两龙对峙，两边各有七小蛇。面板中板无纹饰，周沿绘菱纹，内填几何纹、云纹、变形龙纹；首岳端部以方格纹为地，并排绘凤鸟6只。两侧板纹饰相同，共分四组，第一组为12只凤鸟分上、下两排翅飞翔；第二组为变形云纹；第三组、四组分别为前两组的重复。首档板绘凤鸟纹等。"
+            },
+            {
+                src: "resource/section_2_3_4.png",
+                description: "木瑟，河南固始县侯古堆出土，瑟是古史记载中原始的丝弦乐器之一，它有二十五根弦，是根据信阳长台关出土的瑟复制而成的，瑟码很低，由两排组成，演奏时左右手交替配合，汉画像砖上的弹瑟场景也说明了这一点，瑟可以在不变色码的情况下转多个音调，十分方便。高音区清脆、中音区明亮、低音区浑厚，饱满是瑟的特征之一，瑟音域宽广，可独奏、合奏。早在上古时期就流传着许多擅长鼓瑟吹笙的音乐家，孔子从卫国师襄学琴，郑国师文如痴如醉膜拜瑟前，魏师旷，伯牙与钟子期，高山流水遇知音的故事更是千古流传。古人言：“伏羲作瑟、伏羲作琴”伏羲是中华民族的始祖，也是一位造乐之神。“呦呦鹿鸣，食野之苹，我有嘉宾，鼓瑟吹笙。”今日宾朋满座，琴瑟的乐声，如流水，如凤鸣，如南风，如月行，引我们走进大自然深深的芬芳里。"
+            },
+            {
+                src: "resource/section_2_3_5.png",
+                description: "“飞泉漱玉”蕉叶式琴，琴是我国古老的弹弦乐器。相传远古时代伏羲、神农氏“削桐为琴、绳丝为弦”，创造了古琴，几千年来一脉相承，学琴成为历代文人必修的文化课目。古琴具有极其丰富的表现力，强调的是一种无限和深微的境界。“泠泠七弦觅知音”，清淡古雅的琴曲包含了浓厚的中国文化内涵和最为悠远的民族精髓。"
+            },
+            {
+                src: "resource/section_2_3_6.png",
+                description: "兽首编磬，磬是中国古代的打击乐器，多为石制。山西襄汾陶寺遗址所发现的石磬是目前发现的最早的实物资料。商代的磬有石质、玉质、青铜质多种，并出现了编磬，一般是三枚一组。至战国时期编磬制作技艺达到了较高的水平。编磬是由若干只磬排成一组，每枚磬发出高低不同的音响，可以演奏乐曲。在宫廷雅乐或盛大祭典上，编磬与钟密切配合演奏，其音响效应“近之则钟声亮，远之则磬声彰”。此套铜编磬由六件组成，均作宽扁条中折状，一端饰兽首，并有一圆穿孔。"
+            },
+            {
+                src: "resource/section_2_3_7.png",
+                description: "彩绘云纹笙，笙是利用管中的簧片振动发音的编管乐器。《尔雅·释乐》载“大笙谓之巢，小者谓之和”，郭璞注 ：“列管匏中，施簧管端，大者十九簧。”由斗、苗、簧组成。笙斗匏质，笙苗与笙簧竹质。匏身有 14 个对穿的笙苗插孔，笙苗长短略有差别。通体黑漆为地，用红、黄色漆彩绘纹饰，吹管内髹红漆。笙斗腹部饰云纹、绹纹。斗底面饰涡纹，四周饰绹纹，吹管绘成组绹纹、三角雷纹、变形菱纹、卷草纹。这是中国目前所发现最早的笙的实物。笙斗通高 22、腹部周长 29.5、吹管口径 3.25 厘米。"
+            },
+            {
+                src: "resource/section_2_3_8.png",
+                description: "笙，又称芦笙，是簧片与竹管耦合共振而发声的吹奏乐器。此笙木制笙斗，上面列植十七根竹管笙苗，右口稍缺，左右分列，中管最长，两旁渐短，形如凤翼。每根竹管下端嵌紫檀木笙脚，笙脚末端镶接薄铜页簧片。笙苗外束以竹箍，笙嘴镶饰以牛骨。笙是中国源远流长的乐器，是世界上现存大多数簧片乐器的鼻祖。传说女娲发明了笙，甲骨文中“和”字即是当时小笙的象形，源于笙的发音遵循和声原则，声音饱满而悦耳动听。笙为“八音”之中匏之属的乐器，源于笙斗本用匏制，唐代以后多改用木制。笙广泛用于清宫典制音乐和戏曲伴奏中。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

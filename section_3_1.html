@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>始于冠</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_3_1_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">玉发冠，发冠主体为碧玉质，光素无纹，两侧有穿孔。簪为木质，包金蘑菇首。
+                发冠是古代成年男子所戴的束发用具。周代已有男子二十岁行冠礼的习俗，考古发现中迄今可见最早的玉质发冠则为宋代制品。玉发冠至明代十分流行，尺寸较之前代为小。明王圻《三才图会》云：“名曰‘束发’者，亦以仅能撮一髻     耳。”一般作半月形，中空，后部略高于前部。偶见玛瑙、琥珀质地，形式有五梁、七梁或无梁，大多无其余附饰，两侧和（或）前后各有一相对小孔，可对插发簪以束发。
+                玉发冠是明代贵族阶层流行的一种礼仪性饰物，可单独佩戴，也可再外戴乌纱帽。按明制，发冠上梁的多少代表着使用者的等级地位。明清商品经济繁荣，男性平民佩戴头饰日趋普遍，尤以单体玉簪或金簪常见，多做覆斗形或蘑菇形首， 此器之中的包金首木质者较为少见。
+                </p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_3_1_1.jpg",
+                description: "玉发冠，发冠主体为碧玉质，光素无纹，两侧有穿孔。簪为木质，包金蘑菇首。发冠是古代成年男子所戴的束发用具。周代已有男子二十岁行冠礼的习俗，考古发现中迄今可见最早的玉质发冠则为宋代制品。玉发冠至明代十分流行，尺寸较之前代为小。明王圻《三才图会》云：“名曰‘束发’者，亦以仅能撮一髻     耳。”一般作半月形，中空，后部略高于前部。偶见玛瑙、琥珀质地，形式有五梁、七梁或无梁，大多无其余附饰，两侧和（或）前后各有一相对小孔，可对插发簪以束发。玉发冠是明代贵族阶层流行的一种礼仪性饰物，可单独佩戴，也可再外戴乌纱帽。按明制，发冠上梁的多少代表着使用者的等级地位。明清商品经济繁荣，男性平民佩戴头饰日趋普遍，尤以单体玉簪或金簪常见，多做覆斗形或蘑菇形首， 此器之中的包金首木质者较为少见。"
+            },
+            {
+                src: "resource/section_3_1_2.png",
+                description: "青瓷对书俑，《后汉书》卷三十《舆服志》可知：“进贤冠，古缁布冠也，文儒者之服”。"
+            },
+            {
+                src: "resource/section_3_1_3.png",
+                description: "梁冠（进贤冠），这件梁冠由冠额、冠顶、冠耳组成，冠额位于冠体下部，覆于额上，并延伸至脑后，正中海棠花形金池内饰宝相花，两侧为金凤。冠耳位于冠体后部，其上部两侧凸起若蝶翅状。冠额及冠耳四周为贴金框架，中间嵌铜丝网，并缀有金质纹饰。冠耳左右两侧各有一八瓣花形簪纽，用以贯簪。冠耳下部左右边框外壁缀有条形穿扣，冠额两端由此穿过与冠耳接合固定。冠顶为一球面拱形突起，跨在冠耳前壁与冠额之间，黑色漆纱质地，冠顶上还残存着五道皮质梁。"
+            },
+            {
+                src: "resource/section_3_1_4.jpg",
+                description: "九缝皮弁，皮弁多以皮革为冠衣，冠上有饰物。明九缝皮弁，出土于山东邹城的明鲁荒王陵，竹胎黑纱，缝压金线，整体前高后卑。此皮弁以细竹丝编结成的六边形网状结构为胎，外覆黑纱。前后各有十会，两会间形成九缝，缝中压以金线，故称之为“九缝皮弁”。"
+            },
+            {
+                src: "resource/section_3_1_5.jpg",
+                description: "明忠靖冠，明代职官退朝燕居时所戴的一种帽子。以铁丝为框，乌纱、乌绒为表，帽顶略方，中间微突；前饰冠梁，压以金线；后列二山，亦以金缘。四品以下不用金线，改用浅色丝线。冠梁视品级而定。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

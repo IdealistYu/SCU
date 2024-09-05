@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和于乡、射</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_3_4_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">木瑟，《儀禮·鄉飲酒禮》：“設席于堂廉，東上。工四人，二瑟，瑟先。相xiàng者二人，皆左何hè瑟，後首，挎越huó，內弦，右手相。工入，升自西階，北面坐。相者東面坐，遂授瑟，乃降。工歌《鹿鳴》《四牡》《皇皇者華》。”</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_3_4_1.jpg",
+                description: "木瑟，《儀禮·鄉飲酒禮》：“設席于堂廉，東上。工四人，二瑟，瑟先。相xiàng者二人，皆左何hè瑟，後首，挎越huó，內弦，右手相。工入，升自西階，北面坐。相者東面坐，遂授瑟，乃降。工歌《鹿鳴》《四牡》《皇皇者華》。"
+            },
+            {
+                src: "resource/section_3_4_2.png",
+                description: "酿酒砖，画面上端为歇山式屋顶，屋内有鑪，鑪前放置三个酒瓮，鑪的后侧有一酿酒的大釜，一人立于釜前，衣袖高挽，左手靠于釜边，右手在釜内操作，其右一挽髻女子在指挥。屋外一人作观望状。砖的左面上端有一人，身著短衣裤，双手推着载有方形容器的独轮车离去。其下一人，肩挑酒瓮，回首后顾。此砖反映了汉代酿酒和荷酒贩鬻的一些情况。"
+            },
+            {
+                src: "resource/section_3_4_3.jpg",
+                description: "文徵明书并篆额《乡饮酒碑铭》拓片，苏州府学曾立有一块乡饮酒碑，此碑于20世纪60年代被毁，现在仅有碑铭拓片存世。据拓片款署，石碑由“前翰林院待诏、将仕佐郎郡人文徵明书并篆额”“章简甫刻”“嘉靖二十二年癸卯，知府事南充王廷立石”；铭文本身则是“洪武六年癸丑，前史官蜀人王彝撰”。由此可知，《乡饮酒碑铭》的作者为王彝，撰文时间在洪武六年（1373），这一年曾举办过一次乡饮酒礼并为之立碑；而文徵明书《乡饮酒碑铭》的立石时间要晚至嘉靖二十二年（1543）。"
+            },
+            {
+                src: "resource/section_3_4_4.jpg",
+                description: "投壶射礼图铜匜，器壁甚薄，外壁素面，内壁錾刻“射礼图”。图案分三部分：流口刻三条鱼纹；器内底刻一条缠绕的大蛇；腹壁则全景式地展现了一幅射礼场景。在射礼图的画面中部为一庙堂建筑，庙堂正中设一禁，禁上置两壶，壶口各横一勺，庙堂右侧台阶下，主与宾对拜，邀宾入内。堂内，宾主分立两行，各持矢相揖，行答拜礼。画面的右侧，两名司射各挟矢四枝，揖而前行。画面的左侧，两名射者前后分立于各自射位，前者为上射，身插三矢在腰带间，右手持弓，左手搭箭欲射；后者为下射，腰带间插四枝矢，右手持弓，左手欲从腰间取矢。画面的后方正中是一幅称作“侯”的箭靶，有四箭正中靶心。而整幅画面又分为四层，上层为树木，中层为人物故事，下层为鹄禽，底层为水波纹。"
+            },
+            {
+                src: "resource/section_3_4_5.png",
+                description: "习射画像砖，图为两执弓箭的射士。左一人头戴前高后低冠，身着长袍，腰束带，悬佩箭服，三箭斜插于内，右手执弓，左手搭箭于弦上；右一人头戴圆顶冠，身着长袍，腰间束带，右手执弓，左手搭箭于弦上。"
+            },
+            {
+                src: "resource/section_3_4_6.png",
+                description: "宴乐渔猎攻战纹图壶，壶颈部为第一区，上下两层，左右分为两组，主要表现采桑、射礼活动。采桑组树上、下共有采桑和运桑者五人，表现妇女在桑树上采摘桑叶，可能表现的是后妃所行的蚕桑之礼。画中男子束装佩剑，似在选取弓材。习射组四人在一建筑物下依次较射，前设侯，侯为箭靶。《小广雅·释器》：“射有张布谓之侯，侯中者谓之鹄…… ”。这里描绘的应是古时举行射礼时的场景。 　　第二区位于壶的上腹部，分为两组画面。左面一组为宴享乐舞的场面，七人在亭榭上敬酒如仪，榭栏下有二圆鼎，二奴仆正从事炊事操作。下面是乐舞部分，簨簴上悬有钟磬，旁立建鼓和丁宁，图中三人敲钟，一人击磬，一人持二桴（鼓槌）敲打鼓和丁宁，尚有一人持号角状的吹奏乐器在演奏，表现了载歌载舞的热闹场面。右面一组为射猎的场景，鸟兽鱼鳖或飞、或立、或游，四人仰身用缯缴弋射，一人立于船上亦持弓作射状。"
+            },
+            {
+                src: "resource/section_3_4_7.png",
+                description: "“柞伯”铜簋，1993年河南省平顶山市应国墓地出土。“柞伯”铜簋的铭文是一篇流畅的记叙文。铭文大意是，八月庚申的早晨,周王在镐京举行射箭技艺比赛，选手分两个小组。周王用十块红铜作为奖品，并在比赛开始前颁布指令，要求参赛者谨慎谦恭地比赛,射中靶子最多的人可以得到奖品。比赛开始，柞伯十发十中,获得奖赏。短短74字,阐明了当时射礼举行的时间、地点、人物、事件、经过和结果,言简意赅,层次分明。铭文中提到的射礼是以射箭形式进行的一种礼仪，形成于商代晚期，周承商制，射礼融入了周王朝贵族教育体系。周王官学要求学生掌握六种基本才能，分别是礼、乐、射、御、书、数，称为“六艺”。“柞伯”铜簋的出土为我们展开了一幅合乐而射、恭谨谦让的秋季大射礼画卷，成为我们了解古代文化教育制度的第一手资料。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

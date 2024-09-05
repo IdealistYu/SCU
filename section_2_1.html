@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兴于诗 发于情</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_2_1_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">阜阳汉简《诗经》，中国西汉前期汝阴侯墓中出土的简牍。1977年安徽省文物工作队等单位在安徽阜阳双古堆 1号墓发掘出土。国家文物局古文献研究室、阜阳地区博物馆合作整理。据墓葬形制和随葬器物分析，墓主可能是第二代汝阴侯夏侯灶，卒于汉文帝十五年 (公元前165)。</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_2_1_1.png",
+                description: "阜阳汉简《诗经》，中国西汉前期汝阴侯墓中出土的简牍。1977年安徽省文物工作队等单位在安徽阜阳双古堆 1号墓发掘出土。国家文物局古文献研究室、阜阳地区博物馆合作整理。据墓葬形制和随葬器物分析，墓主可能是第二代汝阴侯夏侯灶，卒于汉文帝十五年 (公元前165)。"
+            },
+            {
+                src: "resource/section_2_1_2.jpg",
+                description: "郭店简《性自命出》，1993年出土于湖北省荆门市郭店一号楚墓"
+            },
+            {
+                src: "resource/section_2_1_3.jpg",
+                description: "上博简《孔子诗论》"
+            },
+            {
+                src: "resource/section_2_1_4.jpg",
+                description: "海昏简牍《诗经》，1.	《诗经》简；2.《孝经》简；3.《论语》简；　4.六博简；5.《礼记》简；6.祠祝简；7.方技简；8.《春秋》简；北京大学出土文献研究所所长朱凤瀚介绍说，海昏简牍《诗经》现存竹简1200余枚。简文内容可以见到“《诗经》三百〇五篇”“《颂》丗篇”“《大雅》卅一篇”“《国》百六十篇”等记载篇目数量的内容"
+            },
+            {
+                src: "resource/section_2_1_5.jpg",
+                description: "《熹平石经》残石，东汉熹平四年（公元175年），汉灵帝命令蔡邕等人以隶书写定《诗》、《书》、《易》、《仪礼》、《春秋》、《公羊传》、《论语》等7经，东汉光和六年（公元183年），经蔡邕写定的经书被刻到了石碑上，刻成46碑作为儒学经典的标准定本，立在太学以便读经人校对是正，当时观摹校核经书的人络绎不绝，车马塞道。"
+            },
+            {
+                src: "resource/section_2_1_6.jpg",
+                description: "诗经铭文镜，武汉博物馆公众号推文《细说馆藏十大精品文物之诗经铭文镜》"
+            },
+            {
+                src: "resource/section_2_1_8.png",
+                description: "后蜀残石经"
+            },
+            {
+                src: "resource/section_2_1_9.png",
+                description: "诗经·小雅·节南山之什图卷"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

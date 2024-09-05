@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>耳闻目见</title>
+    <link rel="stylesheet" href="css/section_temp_styles.css">
+</head>
+<body>
+    <div class="screen screen1" id="screen1">
+        <div class="content-container">
+            <img src="resource/section_3_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox">Loading...</div>
+                <div class="btn-group">
+                    <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
+                    <div class="dropdown" id="audioDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="playAudio('chinese')">播放中文语音</button>
+                            <button onclick="playAudio('english')">播放英文语音</button>
+                        </div>
+                    </div>
+                    <img src="resource/audio.png" id="audioBtn" alt="播放语音">
+                    <div class="dropdown" id="moreDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="toggleZoomText()">放大镜</button>
+                            <button onclick="toggleHighContrast()">高对比度</button>
+                            <button onclick="backgroundMusic()">章节配乐</button>
+                        </div>
+                    </div>
+                    <img src="resource/more.png" id="moreBtn" alt="更多">
+                </div>
+            </div>
+            <div class="arrow_body" onclick="scrollToNextScreen()">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="screen screen2" id="screen2">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <div class="image-box">
+                <a href="section_3_1.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_3_1_5.jpg" alt="左侧图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">始于冠</div>
+                <div class="text-box">
+                    <p>冠礼是传统社会男子成人的标志，女子则有笄礼。通过特定的加冠或者及笄仪式宣布一个人已经成年，从此可以享有成年人的待遇，参加相应的社会礼仪活动。冠礼在家庭全体成员和乡中贤士的参与、见证中进行，并在家庙里行醴醮等仪式，从而带有庄严的宗教色彩，以强化仪式的神圣性。加冠者将受到一系列的道德训诫，培养成人的责任意识和价值观念。
+                        儒家的冠礼释义从社会政治观念、德性修养论和形上学一体论诸角度阐释了冠礼中包含的诸多意蕴，实现对各类社会礼俗仪式的意义点化和精神提升，使礼仪生活中的人获得对生命的深切体证。
+                        </p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_3_2.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_3_2_4.jpg" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">本于昏</div>
+                <div class="text-box">
+                    <p>儒家对婚姻关系的理解绝非仅仅着眼于其伦理与社会意义，而是极力突出其对王道政教的奠基意义，更进而以一种哲学化的方式论说其对整个人类生存与社会秩序的本原性地位，将夫妇之道理解为天道自然秩序的根本呈现形式。
+                        儒家以爱与敬为婚姻之本的观念，和将情感原则与秩序原则以及社会责任彼此协调的思想，仍对人类婚姻生活的维系与调整有根本的启示意义。
+                        </p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_3_3.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_3_3_3.jpg" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">重于丧、祭</div>
+                <div class="text-box">
+                    <p>古人将丧、祭二礼视为事亲之孝道的延伸，如《论语》所言：“生，事之以礼；死，葬之以礼；祭之以礼。”丧、祭之礼时间上前后相连，精神上一体相通。丧祭礼都与生命中的终极事物相关，丧礼关乎生死，而祭礼关乎天地鬼神，因此，丧祭礼是华夏传统信仰生活的主要体现和承担者，这也是其在礼制系统中的特殊重要性之原因所在。</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_3_4.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_3_4_7.png" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">和于乡、射</div>
+                <div class="text-box">
+                    <p>乡饮酒礼乃古代乡人以时聚会饮酒之礼。其意义要在于序长幼，别贵贱，以一种普及性的道德实践活动，成就孝弟、尊贤、敬长养老的道德风尚。乡饮酒礼诸礼节所传达的基本精神是宾主间的尊让契敬之意。“和乐而不流”在乡饮酒礼之用乐中体现。乡饮酒礼歌有节制，促进和谐亲睦的社会关系。
+                        射礼作为“八礼”“六艺”之一不仅是一种技艺的练习与竞赛，更重要的是体现了一种观盛德、司礼乐、正志行，以成己立德的意义。
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/section_3_scripts.js"></script>
+</body>
+</html>

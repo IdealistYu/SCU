@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国安 天下平</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_4_2_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">孔子及四圣像，《孔子世家谱》是目前世界上延续时间最长、制度上最完善、结构上最完整的一部氏族谱系。此谱倡修于1928年，至1937年方告修成。由孔子七十七代孙孔德成任总裁，参与修谱者有六十余人。全谱除收录主要的二十派六十户外，对于历代外迁的旁支也尽可能地收入。本谱共分四集，首一卷，初集六十二卷，二集三十二卷，三集十卷，四集二卷，共一百零七卷，分装成一百五十四册。卷首一册，收录新旧序文十二篇、与事人等内容；初集六十二卷，记录曲阜地区的二十派六十户；二集三十二卷，记中兴祖（孔仁玉）之后外迁的三十四个支派；三集十卷，记中兴祖之前外迁的十个支派；四集二卷，记历代外迁而前谱失叙的七十七支族人。家谱收录孔氏族人近六十万。</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_4_2_1.png",
+                description: "孔子及四圣像，《孔子世家谱》是目前世界上延续时间最长、制度上最完善、结构上最完整的一部氏族谱系。此谱倡修于1928年，至1937年方告修成。由孔子七十七代孙孔德成任总裁，参与修谱者有六十余人。全谱除收录主要的二十派六十户外，对于历代外迁的旁支也尽可能地收入。本谱共分四集，首一卷，初集六十二卷，二集三十二卷，三集十卷，四集二卷，共一百零七卷，分装成一百五十四册。卷首一册，收录新旧序文十二篇、与事人等内容；初集六十二卷，记录曲阜地区的二十派六十户；二集三十二卷，记中兴祖（孔仁玉）之后外迁的三十四个支派；三集十卷，记中兴祖之前外迁的十个支派；四集二卷，记历代外迁而前谱失叙的七十七支族人。家谱收录孔氏族人近六十万。"
+            },
+            {
+                src: "resource/section_4_2_2.png",
+                description: "马远《孔子像》，马远(生卒年不详，南宋宁宗时期人，大约活跃于13世纪初期)，字遥父，号钦山，祖籍河中(今山西永济)，生于钱塘(今浙江杭州)。其曾祖、祖父、伯、兄及本人均为画院待诏。从北宋一直延续到南宋。“靖康之变”北宋灭亡后，马远的祖父随着高宗赵构南渡，所以马远是在南宋的都城临安(今浙江杭州)出生长大的。他大致的活动时间在南宋光宗、宁宗年间。擅画人物、山水、花鸟。山水始承家学后学李唐而自出新意，构图多用边角形式，有“马一角”之称，是南宋“翰林图画院”中的佼佼者。与另外三位画院画家李唐、刘松年、夏圭在画史上合称为“南宋四家”。"
+            },
+            {
+                src: "resource/section_4_2_3.png",
+                description: "丁云鹏三教图轴，图左下款署“善男子丁雲鵬敬寫”。钤“丁雲鵬印”“南羽氏”。画上有陈继儒题记。此图画孔子、老子、红衣罗汉坐于树下共同探究玄理的情景。画中三位智慧长者面目严肃，神情专注，孔子儒雅敦厚，循循善诱，正发表言论；老子道貌岸然，谨慎而善辩，他注视着对方，似乎准备随时发问；红衣罗汉双目低垂，安详而平静，从他紧锁的眉头可以看出他已沉于思索之中。明代，随着儒、道、释三教的融合，宗教题材的绘画也随之有了世俗化的倾向，此画中的宗教人物与作为供养的神仙不同，脱离了程式化的因素，有着鲜明的个性特征和情绪化色彩，同时融入了文人的审美情趣。其人物造型古拙、气质端庄文雅，体现了明后期文人画注重表现个性的风尚。画法上，运用“高古游丝描”，细劲而“笔力伟然”，既有古朴之感，又具有时代气息。设色古妍冷隽，尤其是人物服饰的红色、兰色与赭色，赋色沉稳和谐。山石树木勾勒添色，取法文徵明，小青绿设色，文静典雅，营造了一种静谧清淡的意境，引人入胜。"
+            },
+            {
+                src: "resource/section_4_2_4.png",
+                description: "五彩麒麟送子图长方瓷板，瓷板长方形，侧面有插孔。一面白釉光素，另一面绘五彩麒麟送子图。画面中绘有5小童，一红衣小童骑在麒麟背上，麒麟昂首阔步走在山路上，前后各饰两小童，有的扛旗，有的持物。远处红云缭绕，依稀可见房屋屋脊。周围衬以山石栏杆。“麒麟送子”是清代瓷器中常用的装饰题材。《名山藏》载“孔子将生，有麟吐玉书于阙里（山东曲阜），圣母以绣绂系麟之角”。古时将麒麟视为祥瑞，以“麒麟送子”表达祝愿早生贵子之意。"
+            },
+            {
+                src: "resource/section_4_2_5.png",
+                description: "日本 阿部正伦《孔子画像》"
+            },
+            {
+                src: "resource/section_4_2_6.png",
+                description: "中国政府向美国政府赠送的代表和平的孔子像"
+            },
+            {
+                src: "resource/section_4_2_7.png",
+                description: "《Abrégé historique des principaux traits de la vie de Confucius》（孔子画传），孔子未生之时，有麟吐玉书(天书)于阙里孔子之家.书上文字写着，“水精之子，继衰周而素王.”阙里，在洙泗之间，孔子时尚无阙里之名，其名始见于《汉书·梅福传》，至后汉始盛称孔子故里为阙里。由此可见“麟吐玉书”是后人附会之说。后因用为圣人诞生天降祥瑞的典故。《幼学琼林》卷二“老幼寿诞”:麟吐玉书，天生孔子之瑞。"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>

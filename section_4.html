@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和谐万邦</title>
+    <link rel="stylesheet" href="css/section_styles.css">
+</head>
+<body>
+    <div class="screen screen1" id="screen1">
+        <div class="content-container">
+            <img src="resource/section_4_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox">Loading...</div>
+                <div class="btn-group">
+                    <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
+                    <div class="dropdown" id="audioDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="playAudio('chinese')">播放中文语音</button>
+                            <button onclick="playAudio('english')">播放英文语音</button>
+                        </div>
+                    </div>
+                    <img src="resource/audio.png" id="audioBtn" alt="播放语音">
+                    <div class="dropdown" id="moreDropdown">
+                        <div class="dropdown-content">
+                            <button onclick="toggleZoomText()">放大镜</button>
+                            <button onclick="toggleHighContrast()">高对比度</button>
+                            <button onclick="backgroundMusic()">章节配乐</button>
+                        </div>
+                    </div>
+                    <img src="resource/more.png" id="moreBtn" alt="更多">
+                </div>
+            </div>
+            <div class="arrow_body" onclick="scrollToNextScreen()">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="screen screen2" id="screen2">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <div class="image-box">
+                <a href="section_4_1.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_4_1_1.png" alt="左侧图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">修身 齐家</div>
+                <div class="text-box">
+                    <p>“欲治其国者，先齐其家；欲齐其家者，先修其身。”
+                        Wanting to govern well their states, they first harmonized their own clans.
+                        Wanting to harmonize their own clan, they first cultivated themselves.
+                        ——《礼记·大学》
+                        礼乐文明的赓续传承离不开千门万户，而家户又是由具有独立人格的个体所组成的，久久为功，透过家谱、家训等文物，我们得以管窥古人们对礼乐文明的敬畏与弘扬。弦歌不绝，现今，我们仍然能通过个体的坚守、家风的建设，感知到孔子礼乐声中的教化不绝。                        
+                        </p>
+                </div>
+            </div>
+            <div class="image-box">
+                <a href="section_4_2.html">
+                    <div class="image-frame">
+                        <img src="./resource/section_4_2_6.png" alt="中间图片" class="side-image">
+                    </div>
+                </a>
+                <div class="image-title">国安 天下平</div>
+                <div class="text-box">
+                    <p>“为天地立心，为生民立命，为往圣继绝学，为万世开太平”是中国知识分子的永恒追求，如今，仲尼之礼乐在我国已可谓是“洋洋乎盈耳哉”，钟磬琴瑟之音绕梁。声扬四海，“明德”不再局限于华夏国土，和谐万邦的天下观也深刻影响着异邦。构建人类命运共同体理念，是习总书记着眼人类发展和世界前途提出的中国方案，也是中国引领时代潮流和人类文明进步方向的鲜明旗帜。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/section_4_scripts.js"></script>
+</body>
+</html>

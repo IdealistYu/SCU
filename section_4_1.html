@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修身 齐家</title>
+    <link rel="stylesheet" href="css/part_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_4_1_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">《孔子世家谱》是目前世界上延续时间最长、制度上最完善、结构上最完整的一部氏族谱系。此谱倡修于1928年，至1937年方告修成。由孔子七十七代孙孔德成任总裁，参与修谱者有六十余人。全谱除收录主要的二十派六十户外，对于历代外迁的旁支也尽可能地收入。本谱共分四集，首一卷，初集六十二卷，二集三十二卷，三集十卷，四集二卷，共一百零七卷，分装成一百五十四册。卷首一册，收录新旧序文十二篇、与事人等内容；初集六十二卷，记录曲阜地区的二十派六十户；二集三十二卷，记中兴祖（孔仁玉）之后外迁的三十四个支派；三集十卷，记中兴祖之前外迁的十个支派；四集二卷，记历代外迁而前谱失叙的七十七支族人。家谱收录孔氏族人近六十万。</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_4_1_1.png",
+                description: "《孔子世家谱》，《孔子世家谱》是目前世界上延续时间最长、制度上最完善、结构上最完整的一部氏族谱系。此谱倡修于1928年，至1937年方告修成。由孔子七十七代孙孔德成任总裁，参与修谱者有六十余人。全谱除收录主要的二十派六十户外，对于历代外迁的旁支也尽可能地收入。本谱共分四集，首一卷，初集六十二卷，二集三十二卷，三集十卷，四集二卷，共一百零七卷，分装成一百五十四册。卷首一册，收录新旧序文十二篇、与事人等内容；初集六十二卷，记录曲阜地区的二十派六十户；二集三十二卷，记中兴祖（孔仁玉）之后外迁的三十四个支派；三集十卷，记中兴祖之前外迁的十个支派；四集二卷，记历代外迁而前谱失叙的七十七支族人。家谱收录孔氏族人近六十万。"
+            },
+            {
+                src: "resource/section_4_1_2.png",
+                description: "《赵氏家谱》，宁夏博物馆藏《赵氏家谱》为清代宁夏籍赵氏一族的家谱类文献，比较详细地记载了自明末至清末赵氏家族三百多年的历史、主要成员世系及事迹等，清初著名将领赵良栋即家谱中之第四世。其中关于赵良栋的家世，尤其是其先世情况的记载完整详细，为目前所仅见，这对于赵良栋家族世系的进一步完整考证和明末清初相关政治、历史、地理及军事的研究都具有十分重要的文献价值。"
+            },
+            {
+                src: "resource/section_4_1_3.png",
+                description: "《檇李徐翼所公家训碑》，董其昌行书《檇李徐翼所公家训碑》，明万历四十五年(1617)二月立。徐学周撰文，董其昌书。圆首方座，碑额无题。通高224厘米，宽88厘米。碑文为徐学周所撰之家训七章。拓片现藏北京图书馆。"
+            },
+            {
+                src: "resource/section_4_1_4.png",
+                description: "《孔子评传》，这是建国以来孔子研究中最为系统的学术专著。该书在孔子研究中强调三个区别：（一）将真孔子和假孔子加以区别亦即把孔子思想本身和历代封建统治阶级及其御用学者加以吹捧、歪曲和附益的东西加 以区别。（二）把真孔子思想本身中所含有的封建性、保守性的消极因素和人民性、民主性的积极因素加 以区别。（三）即使在孔子思想的积极因素中也要把那些对当前建设社会主义物质文明和精神文明特别是建设精神文明直接有利的东西和只做参考借鉴的东西加以区别。该书主张三分法：一是对孔子思想中直接为维护封建社会统治阶级服务的东西必须彻底批判；二是对孔子思想中远见的智慧或这种智慧的萌芽的东西给予认真的批判和清理做到“古为今用”；三是凡孔子思想中仍保有生命力而具有现实意义的东西都应予继承和发展。该书指出孔子思想的四个特征：一是二重性即保守性与积极性、封建性与民主性并存；二是多面性即孔子思想中有唯心主义的因素也有唯物主义的因素；三是略于“天道”详于“人道”；四是仁为中心。"
+            },
+            {
+                src: "resource/section_4_1_5.png",
+                description: "鲁孔子庙碑，此为明拓本，二十三开，“體”字“曲”部可见，“大圣之才”之“才”字左未损连，“千载”之“载”字左上角“十”部尚存，“谓崇”二字亦未损连。黄易鉴藏，钤“小松”印。碑立于三国魏黄初二年（221年）。碑文记孔子二十一世孙孔羡封为宗圣侯，使司孔子之释奠，修理孔庙之事。结体严整，书风淳古，气势磅礴，与汉末以方笔取胜的《鲜于璜碑》、《张迁碑》等一脉相承，为魏隶代表妙迹。洪适《隶释》云：“魏隶可珍者四碑，此为之冠。”杨守敬《平碑记》云：“此碑以方正板实胜，略不满者，稍带寒俭气，六代人分楷多宗此种，惟北齐少似之者。”碑现存山东曲阜汉魏碑刻陈列馆。"
+            },
+            {
+                src: "resource/section_4_1_6.png",
+                description: "ARTHUR ASHE JR.’S FAMILY TREE. Completed in 1991, the Blackwell Family Tree is an intricately detailed feat of genealogical inscription tracing family lineage back to 1735. Hand-written on canvas measuring 9 x 11 feet, there are over 5,000 names on the family tree representing people — including Arthur Ashe Jr. (1943-1993) — from 15 states, Africa, Canada, Germany, and Haiti. Ashe’s cousin, Thelma Doswell, Certified Genealogist and Blackwell Family Historian, is credited with the creation of the tree. She passed away in 2012. According to Ms. Doswell’s research, the Blackwells are traceable back to a slave auction in 1735, when an African woman named Amar and her daughter, Tab, were purchased by plantation owner James Glenn Blackwell. Amar and Tab had arrived in Yorktown, Virginia, from Senegal, West Africa, on the slave ship Doddington."
+            },
+            {
+                src: "resource/section_4_1_7.png",
+                description: "《蔷薇园》，萨迪(1208-1292),波斯诗人,生于设拉子，出身教士家庭幼年即成孤儿,在巴格达学习文学和神学。由于蒙古大军的入侵他流浪的足迹遍布北非和中亚。代表作《蔷薇园》(1258)表达对百姓的热爱和同情,对暴君的深恶痛绝。诗歌富有哲理,语言凝练。"
+            },
+            {
+                src: "resource/section_4_1_8.png",
+                description: "意大利文版《论语》"
+            },
+            {
+                src: "resource/section_4_1_9.jpg",
+                description: "Provérbios de Confúcio"
+            },
+            {
+                src: "resource/section_4_1_10.png",
+                description: "一代宗师：孔子（西班牙文版）"
+            },
+            {
+                src: "resource/section_4_1_11.jpg",
+                description: "圣迹图·删述六经，绢本设色，绘孔子及弟子“删述六经”情景。画面中表现的是孔子晚年回到鲁国，专心整理古代文献，以诗书礼乐教育弟子的情景。画面中右边孔子坐于书案前整理典籍文献，众弟子或立于案前聆听孔子教诲，或三三两两席地而坐，研读典籍，相互交流。 画面上部中间抄录《史记·孔子世家》中的部分内容，文曰：“哀公十四年丁巳，孔子年六十八，季康子使人迎孔子，孔子归鲁。然鲁终不用孔子，孔子亦不求仕，乃序书传礼记，删诗正乐，序易、彖、象、系、说卦、文言。弟子盖三千焉 ，身通六艺者七十二人。”题后有赞，曰：“辙环天下，道不可行。曰归乎来，修我典刑。三千其徒，七十高弟。删述六经，垂宪万世。”"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>
