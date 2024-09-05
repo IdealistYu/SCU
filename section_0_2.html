@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("./resource/section_bg.png");
+            background-size: cover; /* 背景图片覆盖整个页面 */
+        background-position: center; /* 背景图片居中 */
+        background-repeat: no-repeat; /* 背景图片不重复 */
+        background-attachment: fixed; /* 背景图片固定 */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .image-container {
+            position: relative;
+            width: 60%;
+            max-width: 800px;
+            height: 500px; /* 固定高度 */
+            background-color: white; /* 填充留白 */
+            display: flex;
+            margin-left: 12%;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* 防止图片溢出 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加阴影 */
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* 图片保持比例 */
+        }
+
+        .prev-button, .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        .fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .text-container {
+            width: 60%;
+            max-width: 800px;
+            margin-top: 20px;
+            margin-left: 12%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+
+        .text-container p {
+            margin: 0;
+            color: #333;
+        }
+
+        .btn-group {
+    position: absolute;
+    top: -50px; /* 提升按钮组的位置 */
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 34px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-content {
+    padding: 10px;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #f0f0f0;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.button-container a {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex: 1;
+    text-align: center;
+}
+
+.button-container img {
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.button-1 {
+    flex: 2;
+}
+
+.divider {
+    width: 2px;
+    background-color: #ccc;
+    height: 100%;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <a href="index.html" class="button-1">
+                <img src="resource/button_1.png" alt="按钮1">
+            </a>
+            <a href="section_0.html" class="button-2">
+                <img src="resource/button_2.png" alt="按钮2">
+            </a>
+            <div class="divider"></div>
+            <a href="section_1.html" class="button-3">
+                <img src="resource/button_3.png" alt="按钮3">
+            </a>
+            <div class="divider"></div>
+            <a href="section_2.html" class="button-4">
+                <img src="resource/button_4.png" alt="按钮4">
+            </a>
+            <div class="divider"></div>
+            <a href="section_3.html" class="button-5">
+                <img src="resource/button_5.png" alt="按钮5">
+            </a>
+            <div class="divider"></div>
+            <a href="section_4.html" class="button-6">
+                <img src="resource/button_6.png" alt="按钮6">
+            </a>
+        </div>
+        <div class="image-container">
+            <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <img id="displayed-image" src="./resource/section_0_2_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+        </div>
+        <div class="text-container">
+            <p id="image-description">宋 佚名 孔子见荣启期图</p>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            {
+                src: "resource/section_0_2_1.png",
+                description: "宋 佚名 孔子见荣启期图"
+            },
+            {
+                src: "resource/section_0_2_2.png",
+                description: "明人彩绘圣迹图——学琴师襄"
+            },
+            {
+                src: "resource/section_0_2_3.png",
+                description: "在齐闻韶图"
+            },
+            {
+                src: "resource/section_0_2_4.png",
+                description: "学琴师襄图"
+            },
+            {
+                src: "resource/section_0_2_5.png",
+                description: "退修琴书图"
+            },
+            {
+                src: "resource/section_0_2_6.png",
+                description: "围匡图"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById('displayed-image');
+            const descriptionElement = document.getElementById('image-description');
+
+            imageElement.src = images[index].src;
+            descriptionElement.textContent = images[index].description;
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener("fullscreenchange", () => {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
+        });
+    </script>
+</body>
+</html>
