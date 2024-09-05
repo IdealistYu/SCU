@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("./resource/section_bg.png");
+    background-image: url("../resource/section_bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
