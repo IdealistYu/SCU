@@ -1,0 +1,254 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.screen2 {
+    background-image: url('../resource/section_bg.png');
+    background-size: cover; /* 背景图片覆盖整个页面 */
+    background-position: center; /* 背景图片居中 */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.content-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.arrow_body {
+    position: absolute;
+    display: flex;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(-90deg);
+    cursor: pointer;
+    z-index: 20;
+}
+.home-image {
+    width: 100%;
+    height: 100%;
+}
+.arrow {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid #000;
+    border-left: 4px solid #000;
+    transform: rotate(-45deg);
+    animation: arrow_load 2s infinite;
+}
+.arrow:nth-child(1) {
+    left: 15px;
+    animation-delay: -0.4s;
+}
+.arrow:nth-child(2) {
+    animation-delay: -0.2s;
+}
+.arrow:nth-child(3) {
+    right: 15px;
+}
+@keyframes arrow_load {
+    0% {
+        opacity: 0;
+        transform: rotate(-45deg) translate(30px, 30px);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-45deg) translate(-30px, -30px);
+    }
+}
+
+
+.container {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* 确保文本框在所有组件的前面 */
+}
+
+#textbox {
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* 添加这个属性使文本框内容可滚动 */
+    transition: all 0.3s ease; /* 添加平滑过渡效果 */
+    color: #524221; /* 默认字体颜色 */
+}
+
+.btn-group {
+    position: absolute;
+    top: -50px; /* 提升按钮组的位置 */
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 34px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-content {
+    padding: 10px;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #f0f0f0;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.button-container a {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex: 1;
+    text-align: center;
+}
+
+.button-container img {
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.button-1 {
+    flex: 2;
+}
+
+.divider {
+    width: 2px;
+    background-color: #ccc;
+    height: 100%;
+}
+.image-container {
+    display: flex;
+    margin-left: 12%;
+    justify-content: space-between;
+    gap: 100px; /* 控制两张图片之间的距离 */
+}
+.image-box {
+    text-align: center;
+    max-width: 300px; /* 确保整个块的宽度与图片一致 */
+}
+.image-frame {
+    width: 300px; /* 固定底框的宽度 */
+    height: 300px; /* 固定底框的高度 */
+    background-color: rgba(255, 255, 255, 0.7); /* 底框的白色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加阴影 */
+    margin-bottom: 10px; /* 底框与标题之间的间距 */
+}
+.side-image {
+    width: 90%; /* 如果图片太小，至少扩展到底框宽度 */
+    transition: transform 0.3s;
+    cursor: pointer;
+    z-index: 20;
+}
+.side-image:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大效果 */
+}
+.image-title {
+    margin-top: 20px;
+    padding: 5px 10px;
+    font-size: 28px; /* 增大标题字号 */
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.image-title::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* 外层线条 */
+    border-radius: 15px; /* 圆角效果 */
+}
+.image-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.5); /* 内层线条 */
+    border-radius: 10px; /* 圆角效果 */
+}
+.text-box {
+    margin-top: 10px;
+    width: 100%;
+    height: 250px; /* 设置文本框的固定高度 */
+    overflow-y: auto; /* 允许垂直滚动 */
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* 添加阴影 */
+    border-radius: 5px; /* 圆角效果 */
+    margin-top: 20px;
+}
