@@ -35,6 +35,16 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_3_1_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            <video id="displayed-video" width="100%" height="500" controls preload="metadata">
+                <!-- 添加视频源 -->
+                <source src="resource/video/xzhdx.mp4" type="video/mp4">
+                <!-- 如果浏览器不支持 video 标签则显示的文字 -->
+                <p>抱歉，您的浏览器不支持 HTML5 视频播放。</p>
+            </video>
+            <div class="showVideo" onclick="showVideo()">
+                <img src="resource/icon/icon-play.png" class="playBtn" />
+                <img src="resource/icon/icon-play-hover.png" class="playBtn hover" />
+            </div>
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
@@ -46,6 +56,7 @@
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -61,24 +72,35 @@
                 description: "梁冠（进贤冠），这件梁冠由冠额、冠顶、冠耳组成，冠额位于冠体下部，覆于额上，并延伸至脑后，正中海棠花形金池内饰宝相花，两侧为金凤。冠耳位于冠体后部，其上部两侧凸起若蝶翅状。冠额及冠耳四周为贴金框架，中间嵌铜丝网，并缀有金质纹饰。冠耳左右两侧各有一八瓣花形簪纽，用以贯簪。冠耳下部左右边框外壁缀有条形穿扣，冠额两端由此穿过与冠耳接合固定。冠顶为一球面拱形突起，跨在冠耳前壁与冠额之间，黑色漆纱质地，冠顶上还残存着五道皮质梁。"
             },
             {
-                src: "resource/section_3_1_4.jpg",
+                src: "resource/section_3_1_4.png",
                 description: "九缝皮弁，皮弁多以皮革为冠衣，冠上有饰物。明九缝皮弁，出土于山东邹城的明鲁荒王陵，竹胎黑纱，缝压金线，整体前高后卑。此皮弁以细竹丝编结成的六边形网状结构为胎，外覆黑纱。前后各有十会，两会间形成九缝，缝中压以金线，故称之为“九缝皮弁”。"
             },
             {
                 src: "resource/section_3_1_5.jpg",
                 description: "明忠靖冠，明代职官退朝燕居时所戴的一种帽子。以铁丝为框，乌纱、乌绒为表，帽顶略方，中间微突；前饰冠梁，压以金线；后列二山，亦以金缘。四品以下不用金线，改用浅色丝线。冠梁视品级而定。"
+            },
+            {
+                src: "resource/video/xzhdx.mp4",
+                description: "古人的成人礼有多讲究？《雪中悍刀行》完美还原古代冠礼！"
             }
         ];
 
         let currentIndex = 0;
 
-        function showImage(index) {
-            const imageElement = document.getElementById('displayed-image');
+        function showImage(index) {         
+            if(index == 5){
+                showVideo();
+                
+            }else{   
+                hideVideo();
+                    
+                const imageElement = document.getElementById('displayed-image');
+                imageElement.src = images[index].src;
+            }
             const descriptionElement = document.getElementById('image-description');
-
-            imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
         }
+        showImage(0);
 
         function showPrevImage() {
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
@@ -104,6 +126,29 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+
+        
+        function showVideo(){
+            $(".showVideo").hide();
+            $("#displayed-image").hide();
+            $("#displayed-video").show();
+        }
+        function hideVideo(){
+            $("#displayed-image").show();
+            $("#displayed-video").hide();
+            var videoObj = document.getElementById("displayed-video");
+            videoObj.pause();
+        }
+        function resize(){
+            var containerWidth = $(".image-container").width();
+            var containerHeight = $(".image-container").height();
+            $(".showVideo").css("left", (containerWidth-60)/2);
+            $(".showVideo").css("top", (containerHeight-60)/2);
+        }
+        window.onresize = function(){
+            resize();
+        }
+        resize();
     </script>
 </body>
 </html>

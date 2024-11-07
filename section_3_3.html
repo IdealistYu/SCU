@@ -35,6 +35,9 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_3_3_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            
+            <a href="section_3_3_1.html" class="sectionBtnStyle section331Btn">《礼记》丧祭礼</a>
+
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
@@ -43,6 +46,7 @@
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -51,11 +55,15 @@
             },
             {
                 src: "resource/section_3_3_2.jpg",
-                description: "T形帛画"
+                description: "马王堆一号汉墓T形帛画天界部分，画在上端最宽阔的地方。右上角，一轮红日，日中有金乌，日下的扶桑树间，还有8个太阳。左上角一弯新月，月上有蟾蜍和玉兔，月下画着奔月的嫦娥。日、月之间，端坐着一个披发的人首蛇身天帝，一条红色的长尾自环于周围，天上有一道天门，有守卫的门吏。另有神龙、神鸟和异兽相衬，显得天界的威严和神圣。画面的下窄部分，上为人间下为地下。人间以玉璧为界划分成上下两层，上层是墓主人的升天，下层是对墓主人的祭祀。本图是墓主人升天图像。墓主人拄杖，面向西方，前有小吏迎接，后有侍从护送，很有气魄。人间之下有一巨人赤身裸体，可能是地神，双手举起一白色平台。象征着大地。平台之下，即古人通称的水府（黄泉），巨人脚踏鲸鯢，胯下有蛇，使人感到阴沉昏暗。"
             },
             {
                 src: "resource/section_3_3_3.jpg",
                 description: "黑地彩绘棺"
+            },
+            {
+                src: "resource/section_3_3_4_1.png",
+                description: "《礼记》丧祭礼"
             }
         ];
 
@@ -67,6 +75,12 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+            
+            if(index == 3){
+                showEvent();
+            }else{
+                hideEvent();
+            }
         }
 
         function showPrevImage() {
@@ -93,6 +107,13 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+        
+        function showEvent(){
+            $(".section331Btn").show();
+        }
+        function hideEvent(){
+            $(".section331Btn").hide();
+        }
     </script>
 </body>
 </html>

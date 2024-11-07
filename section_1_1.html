@@ -35,7 +35,19 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_1_1_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
+            
+            <video id="displayed-video" width="100%" height="500" controls preload="metadata">
+                <!-- 添加视频源 -->
+                <source src="resource/video/qxgy.mp4" type="video/mp4">
+                <!-- 如果浏览器不支持 video 标签则显示的文字 -->
+                <p>抱歉，您的浏览器不支持 HTML5 视频播放。</p>
+            </video>
+            <div class="showVideo" onclick="showVideo()">
+                <img src="resource/icon/icon-play.png" class="playBtn" />
+                <img src="resource/icon/icon-play-hover.png" class="playBtn hover" />
+            </div>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
         <div class="text-container">
@@ -46,6 +58,7 @@
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -101,8 +114,16 @@
                 description: "The Divje Babe Flute. A Bear femur bone The spacing between the holes matches present diatomic scale (5) At present there is still an official dispute over whether the holes were man-made or not, but the evidence points strongly in favour of the idea that this is the earliest yet discovered evidence of a musical instrument in the world. It was found in a Neanderthal setting making it the only one of its kind, with all others being associated with Homo sapiens."
             },
             {
-                src: "resource/section_1_1_14.jpg",
+                src: "resource/section_1_1_14.png",
                 description: "The Hohle Fels Flute. The worlds oldest confirmed bone-flute at present. A 5-holed, flute with a V-shaped mouthpiece. Found with fragments of mammoth-ivory flutes."
+            },
+            {
+                src: "resource/section_1_1_15.png",
+                description: "乐悬制度，作为中国古代社会一项独特的政治文化制度，其核心在于通过音乐的演奏来彰显社会的等级秩序和礼仪规范。"
+            },
+            {
+                src: "resource/section_1_1_16.png",
+                description: "乐悬制度的起源可以追溯到龙山文化时期的陶寺遗址，这一时期的王级大墓中已经出现了以土鼓、特磬和鼍鼓等成套的乐器作为陪葬的现象，这标志着乐悬制度的初步萌芽。到了商代晚期，以编铙和磬为主要乐器的乐悬制度已经形成了雏形。至西周晚期，乐悬制度臻于成熟。此时，乐悬制度严格等级化，形成了周天子使用四面的宫悬乐、各诸侯国的诸侯王使用三面的轩悬乐、卿大夫使用两面的判悬乐、士阶层使用一面的特悬乐的等级制度。这种等级化的乐悬制度，体现了社会的等级秩序和礼仪规范。"
             }
         ];
 
@@ -114,6 +135,13 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+            
+            hideVideo();
+            if(index == 10){
+                $(".showVideo").show();
+            }else{
+                $(".showVideo").hide();
+            }
         }
 
         function showPrevImage() {
@@ -140,6 +168,29 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+
+        
+        function showVideo(){
+            $(".showVideo").hide();
+            $("#displayed-image").hide();
+            $("#displayed-video").show();
+        }
+        function hideVideo(){
+            $("#displayed-image").show();
+            $("#displayed-video").hide();
+            var videoObj = document.getElementById("displayed-video");
+            videoObj.pause();
+        }
+        function resize(){
+            var containerWidth = $(".image-container").width();
+            var containerHeight = $(".image-container").height();
+            $(".showVideo").css("left", (containerWidth-60)/2);
+            $(".showVideo").css("top", (containerHeight-60)/2);
+        }
+        window.onresize = function(){
+            resize();
+        }
+        resize();
     </script>
 </body>
 </html>

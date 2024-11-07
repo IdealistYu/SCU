@@ -46,6 +46,7 @@ body {
     border: none;
     padding: 20px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .prev-button {
@@ -65,6 +66,7 @@ body {
     border: none;
     padding: 10px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .text-container {
@@ -116,3 +118,122 @@ body {
     background-color: #ccc;
     height: 100%;
 }
+
+
+.showVideo{
+    position: absolute;
+    top:230px;
+    left:50%;
+    width:60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    background:white;
+    display: none;
+    border:2px solid #aaa;
+}
+.showVideo .playBtn{
+    width: 30px!important;
+    height: 30px!important;
+    margin-top: 15px;
+    margin-left: 17px;
+}
+.showVideo .playBtn.hover{
+    display: none;
+}
+.showVideo:hover{
+    background:red;
+    cursor: pointer;
+}
+.showVideo:hover .playBtn{
+    display: none;
+}
+.showVideo:hover .playBtn.hover{
+    display: block;
+}
+#displayed-video{
+    display: none;
+}
+
+.imgContain4_1{
+    overflow: hidden;
+    display: none;
+}
+.imgContain4_1 .imgLeft{
+    float:left;
+    width:48%;
+    position: relative;
+}
+.imgContain4_1 .imgRight{
+    float:right;
+    width:48%;
+    position: relative;
+}
+.imgContain4_1 img{
+    overflow: hidden;
+}
+.imgContain4_1 .imgLink{
+    position: absolute;
+    text-align: center;
+    top:40%;
+    left:0;
+    right: 0;
+    text-align: center;
+}
+.imgContain4_1 .imgLink a{
+    text-decoration: none;
+    color:white;
+    background:rgba(0,0,0,.6);
+    padding:10px 15px;
+    border-radius: 4px;
+}
+.fontContain4_2{
+    position: absolute;
+    text-align: center;
+    top:40%;
+    left:0;
+    right: 0;
+    overflow: hidden;
+    display: none;
+}
+.fontContain4_2 .btnText{
+    padding:0 20px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color:white;
+    background:rgba(0,0,0,.6);
+    padding:10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sectionBtnStyle{
+    position: absolute;
+    top:40%;
+    text-decoration: none;
+    color:white;
+    background:rgba(0,0,0,.6);
+    padding:10px 15px;
+    border-radius: 4px;
+    display: none;
+}
+.sectionBtnStyle.section12Btn{
+    left:35%;
+}
+.sectionBtnStyle.section13Btn{
+    left:40%;
+}
+.sectionBtnStyle.section131Btn{
+    left:40%;
+}
+.sectionBtnStyle.section331Btn{
+    left:40%;
+}
+.sectionBtnStyle.section421Btn{
+    left:40%;
+}
+.sectionBtnStyle.section422Btn{
+    left:40%;
+}
+

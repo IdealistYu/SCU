@@ -49,10 +49,34 @@ function hideAllDropdowns() {
     moreDropdown.style.display = 'none';
 }
 
-function playAudio(language) {
+function playAudio(language, obj) {
     const audioFilePath = language === 'chinese' ? 'resource/第四单元 单元说明.m4a' : 'resource/第四单元单元说明.mp3';
-    const audio = new Audio(audioFilePath);
-    audio.play();
+    
+    var tmpBtnText = $(obj).siblings("button").text();
+    $(obj).siblings("button").text(tmpBtnText.replace("暂停","播放"));
+
+    var btnText = $(obj).text();
+    if(btnText.indexOf("播放")>=0){
+        $(obj).text(btnText.replace("播放","暂停"));
+        playAudioReset(audioFilePath, false);
+    }else{
+        $(obj).text(btnText.replace("暂停","播放"));
+        pauseAudioReset();
+    }
+}
+function playAudioReset(url, isFoop) {
+    var myAudio = document.getElementById('hideMuisc');
+    myAudio.src = url;
+    if(isFoop){
+        myAudio.loop = true;
+    }else{
+        myAudio.loop = false;
+    }
+    myAudio.play();
+}
+function pauseAudioReset() {
+    var myAudio = document.getElementById('hideMuisc');
+    myAudio.pause();
 }
 
 function toggleZoomText() {
@@ -77,10 +101,16 @@ function toggleHighContrast() {
     }
 }
 
-function backgroundMusic() {
-    const bgMusic = new Audio('resource/幽兰(古琴与编钟乐团).mp3');
-    bgMusic.loop = true;
-    bgMusic.play();
+function backgroundMusic(obj) {
+    var url = 'resource/幽兰(古琴与编钟乐团).mp3';
+    var btnText = $(obj).text();
+    if(btnText.indexOf("暂停")>=0){
+        $(obj).text(btnText.replace("暂停",""));
+        pauseAudioReset();
+    }else{
+        $(obj).text(btnText+"暂停");
+        playAudioReset(url, true);
+    }
 }
 
 // 点击页面其他部分时隐藏所有下拉菜单

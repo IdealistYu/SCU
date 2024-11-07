@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天人合一</title>
+    <link rel="stylesheet" href="css/section_styles.css">
+</head>
+<body>
+    <div class="screen screen1" id="screen1">
+        <div class="content-container">
+            <img src="resource/section_4_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox" class="noborder">
+                    <div class="chatGridView">
+                        <div class="chatGridItem left">
+                            <div class="chatText">
+                                习近平总书记与人类命运共同体<br>
+                                “这个世界越来越成为你中有我、我中有你的命运共同体，和平、发展、合作、共赢成为时代潮流。”<br>
+                                ——2013年3月，习近平总书记在莫斯科国际关系学院的演讲<br>
+                                “我国周边外交的基本方针，就是坚持与邻为善、以邻为伴，坚持睦邻、安邻、富邻，突出体现亲、诚、惠、容的理念。”<br>
+                                ——2013年10月，新中国历史上首次周边外交工作座谈会<br>
+                                “中国人历来主张’世界大同，天下一家’。中国人民不仅希望自己过得好，也希望各国人民过得好。”<br>
+                                ——2017年新年贺词<br>
+                            </div>
+                        </div>
+                        <div class="chatGridItem right">
+                            <div class="chatText">
+                                <div class="scrollChat">
+                                    <div class="scrollContent">
+                                        一倡百和：全球文明倡议的世界回响<br>
+                                        “习近平主席提出全球文明倡议，传递的信息非常明确，要平等尊重彼此，接受差异性，加强不同国家人民间对话，这是不同文明发展的内在需求，也是我们共同的心声。”<br>
+                                        ——埃及中国友好协会副主席、埃及外交部前副部长 阿里·希夫尼<br>
+                                        “明是多样的，但不同文明对全人类共同价值的追求是共通的。中国始终以开放姿态推动交流互鉴。习近平主席提出全球文明倡议，倡导全人类共同价值，让世界听到中国发出加强团结合作的强音。”<br>
+                                        ——俄中友好协会副主席 谢尔盖·萨纳科耶夫<br>
+                                        “中华文明源远流长、博大精深，为人类文明进步作出巨大贡献并深刻影响了世界。”<br>
+                                        ——巴西执政党劳工党文化部全国书记 薇薇安·马丁斯<br>
+                                        “作为汉学家，不论母语是什么，中文是我们统一的语言；不论来自哪种文明，我们共同的追求是人类文明进步。”<br>
+                                        ——巴基斯坦国立现代语言大学讲师 拉希达<br>
+                                        “构建人类命运共同体理念不仅基于中华优秀传统文化，更基于人类文明多样性、全人类共同价值等各国人民共同关心的话题，将为人类破解时代难题、实现共同发展持续提供力量。”<br>
+                                        ——斯里兰卡科伦坡大学高级讲师 马欣达<br>
+                                        &nbsp;<br>
+                                        &nbsp;<br>
+                                        &nbsp;<br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow_body" onclick="window.location.href='section_4_2.html';">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        
+        function toggleFullscreen(elem) {
+            if (!document.fullscreenElement) {
+                elem.style.display = "block";
+                elem.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                elem.style.display = "none";
+                document.exitFullscreen();
+            }
+        }
+
+    </script>
+</body>
+</html>

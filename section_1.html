@@ -13,11 +13,12 @@
             <div class="container">
                 <div id="textbox">Loading...</div>
                 <div class="btn-group">
+                    <audio id="hideMuisc"></audio>
                     <img src="resource/toggle_language.png" id="toggleLangBtn" alt="切换语言">
                     <div class="dropdown" id="audioDropdown">
                         <div class="dropdown-content">
-                            <button onclick="playAudio('chinese')">播放中文语音</button>
-                            <button onclick="playAudio('english')">播放英文语音</button>
+                            <button onclick="playAudio('chinese',this)">播放中文语音</button>
+                            <button onclick="playAudio('english',this)">播放英文语音</button>
                         </div>
                     </div>
                     <img src="resource/audio.png" id="audioBtn" alt="播放语音">
@@ -25,7 +26,7 @@
                         <div class="dropdown-content">
                             <button onclick="toggleZoomText()">放大镜</button>
                             <button onclick="toggleHighContrast()">高对比度</button>
-                            <button onclick="backgroundMusic()">章节配乐</button>
+                            <button onclick="backgroundMusic(this)">章节配乐</button>
                         </div>
                     </div>
                     <img src="resource/more.png" id="moreBtn" alt="更多">
@@ -102,6 +103,7 @@
             </div>
         </div>
     </div>
+    <script src="js/jquery.js"></script>
     <script src="js/section_1_scripts.js"></script>
 </body>
 </html>

@@ -35,6 +35,9 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_1_3_1.jpg" alt="Image 1" onclick="toggleFullscreen(this)">
+            
+            <a href="section_1_3_1.html" class="sectionBtnStyle section131Btn">祭孔的发展</a>
+
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
@@ -43,6 +46,7 @@
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -60,6 +64,10 @@
             {
                 src: "resource/section_1_3_4.jpg",
                 description: "商周十供，“商周十供”是清乾隆皇帝在乾隆三十六年（1771年）到曲阜祭祀孔子时御赐孔府的，作为祭祀孔子的祭器。"
+            },
+            {
+                src: "resource/section_1_2_2.png",
+                description: "祭孔的发展"
             }
         ];
 
@@ -71,6 +79,12 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+            
+            if(index == 4){
+                showEvent();
+            }else{
+                hideEvent();
+            }
         }
 
         function showPrevImage() {
@@ -97,6 +111,14 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+        
+
+        function showEvent(){
+            $(".section131Btn").show();
+        }
+        function hideEvent(){
+            $(".section131Btn").hide();
+        }
     </script>
 </body>
 </html>

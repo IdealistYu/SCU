@@ -35,14 +35,25 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_2_1_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            <video id="displayed-video" width="100%" height="500" controls preload="metadata">
+                <!-- 添加视频源 -->
+                <source src="resource/video/xfjd.mp4" type="video/mp4">
+                <!-- 如果浏览器不支持 video 标签则显示的文字 -->
+                <p>抱歉，您的浏览器不支持 HTML5 视频播放。</p>
+            </video>
+            <div class="showVideo" onclick="showVideo()">
+                <img src="resource/icon/icon-play.png" class="playBtn" />
+                <img src="resource/icon/icon-play-hover.png" class="playBtn hover" />
+            </div>
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
-            <button class="next-button" onclick="showNextImage()">&#10095;</button>
+            <button class="next-button" onclick="showNextImage()">&#10095;</button>            
         </div>
         <div class="text-container">
             <p id="image-description">阜阳汉简《诗经》，中国西汉前期汝阴侯墓中出土的简牍。1977年安徽省文物工作队等单位在安徽阜阳双古堆 1号墓发掘出土。国家文物局古文献研究室、阜阳地区博物馆合作整理。据墓葬形制和随葬器物分析，墓主可能是第二代汝阴侯夏侯灶，卒于汉文帝十五年 (公元前165)。</p>
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -54,11 +65,11 @@
                 description: "郭店简《性自命出》，1993年出土于湖北省荆门市郭店一号楚墓"
             },
             {
-                src: "resource/section_2_1_3.jpg",
+                src: "resource/section_2_1_3.png",
                 description: "上博简《孔子诗论》"
             },
             {
-                src: "resource/section_2_1_4.jpg",
+                src: "resource/section_2_1_4.png",
                 description: "海昏简牍《诗经》，1.	《诗经》简；2.《孝经》简；3.《论语》简；　4.六博简；5.《礼记》简；6.祠祝简；7.方技简；8.《春秋》简；北京大学出土文献研究所所长朱凤瀚介绍说，海昏简牍《诗经》现存竹简1200余枚。简文内容可以见到“《诗经》三百〇五篇”“《颂》丗篇”“《大雅》卅一篇”“《国》百六十篇”等记载篇目数量的内容"
             },
             {
@@ -75,7 +86,7 @@
             },
             {
                 src: "resource/section_2_1_9.png",
-                description: "诗经·小雅·节南山之什图卷"
+                description: "房县《诗经》民歌表演在今天的房县，包含诗经内容的民歌仍然传唱不衰，如《诗经》的开篇《周南·关雎》与当地民歌《关雎》非常相似，结构以后缀式和嵌入式为主。如今，房县已经发现超过102首与诗经有关的民歌。2018年9月8日，中国首套以《诗经》为题材的特种邮票在房县首发，房县尤为深厚的《诗经》文化随之流播四方，广为人知。近年来，房县政府将当地保留着《诗经》文化元素的民歌，视为宝贵的文化遗产，倾力打造中国《诗经》文化之乡、《诗经》文化广场、《诗经》大道等。陈远翠等一批房县民歌手也成为《诗经》文化传承人，让无数游客领略到了这来自历史深处的天籁。"
             }
         ];
 
@@ -87,7 +98,15 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+            
+            hideVideo();
+            if(index == 0){
+                $(".showVideo").show();
+            }else{
+                $(".showVideo").hide();
+            }
         }
+        $(".showVideo").show();
 
         function showPrevImage() {
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
@@ -113,6 +132,30 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+
+
+        
+        function showVideo(){
+            $(".showVideo").hide();
+            $("#displayed-image").hide();
+            $("#displayed-video").show();
+        }
+        function hideVideo(){
+            $("#displayed-image").show();
+            $("#displayed-video").hide();
+            var videoObj = document.getElementById("displayed-video");
+            videoObj.pause();
+        }
+        function resize(){
+            var containerWidth = $(".image-container").width();
+            var containerHeight = $(".image-container").height();
+            $(".showVideo").css("left", (containerWidth-60)/2);
+            $(".showVideo").css("top", (containerHeight-60)/2);
+        }
+        window.onresize = function(){
+            resize();
+        }
+        resize();
     </script>
 </body>
 </html>

@@ -35,6 +35,34 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_4_1_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+
+            <a href="section_4_1_1.html" class="sectionBtnStyle section411Btn">《论语》的译者</a>
+
+            <video id="displayed-video" width="100%" height="500" controls preload="metadata">
+                <!-- 添加视频源 -->
+                <source src="resource/video/xfjd.mp4" type="video/mp4">
+                <!-- 如果浏览器不支持 video 标签则显示的文字 -->
+                <p>抱歉，您的浏览器不支持 HTML5 视频播放。</p>
+            </video>
+            <div class="showVideo" onclick="showVideo()">
+                <img src="resource/icon/icon-play.png" class="playBtn" />
+                <img src="resource/icon/icon-play-hover.png" class="playBtn hover" />
+            </div>
+            <div class="imgContain4_1">
+                <div class="imgLeft">
+                    <img src="resource/section_4_1_6_1.png" />
+                    <div class="imgLink">
+                        <a href="https://jiapu.library.sh.cn/#/" target="_blank">找找你的家谱？</a>
+                    </div>
+                </div> 
+                <div class="imgRight">
+                    <img src="resource/section_4_1_6_2.png" />
+                    <div class="imgLink">
+                        <a href="https://www.familysearch.org/en/family-tree/" target="_blank">Find and build your family tree？</a>
+                    </div>
+                </div> 
+            </div>
+
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
@@ -43,6 +71,7 @@
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -66,8 +95,16 @@
                 description: "鲁孔子庙碑，此为明拓本，二十三开，“體”字“曲”部可见，“大圣之才”之“才”字左未损连，“千载”之“载”字左上角“十”部尚存，“谓崇”二字亦未损连。黄易鉴藏，钤“小松”印。碑立于三国魏黄初二年（221年）。碑文记孔子二十一世孙孔羡封为宗圣侯，使司孔子之释奠，修理孔庙之事。结体严整，书风淳古，气势磅礴，与汉末以方笔取胜的《鲜于璜碑》、《张迁碑》等一脉相承，为魏隶代表妙迹。洪适《隶释》云：“魏隶可珍者四碑，此为之冠。”杨守敬《平碑记》云：“此碑以方正板实胜，略不满者，稍带寒俭气，六代人分楷多宗此种，惟北齐少似之者。”碑现存山东曲阜汉魏碑刻陈列馆。"
             },
             {
+                src: "resource/section_4_1_12.png",
+                description: ""
+            },
+            {
                 src: "resource/section_4_1_6.png",
                 description: "ARTHUR ASHE JR.’S FAMILY TREE. Completed in 1991, the Blackwell Family Tree is an intricately detailed feat of genealogical inscription tracing family lineage back to 1735. Hand-written on canvas measuring 9 x 11 feet, there are over 5,000 names on the family tree representing people — including Arthur Ashe Jr. (1943-1993) — from 15 states, Africa, Canada, Germany, and Haiti. Ashe’s cousin, Thelma Doswell, Certified Genealogist and Blackwell Family Historian, is credited with the creation of the tree. She passed away in 2012. According to Ms. Doswell’s research, the Blackwells are traceable back to a slave auction in 1735, when an African woman named Amar and her daughter, Tab, were purchased by plantation owner James Glenn Blackwell. Amar and Tab had arrived in Yorktown, Virginia, from Senegal, West Africa, on the slave ship Doddington."
+            },
+            {
+                src: "",
+                description: "找找你的家谱"
             },
             {
                 src: "resource/section_4_1_7.png",
@@ -76,6 +113,10 @@
             {
                 src: "resource/section_4_1_8.png",
                 description: "意大利文版《论语》"
+            },
+            {
+                src: "resource/section_4_1_8_1.png",
+                description: "简牍复活：《论语･知道》篇的“重见天日”古籍，记载着当时人们的思想，通过它们，我们可以知道古人是如何齐家、治国，又是如何生活的。《汉书•艺文志》于“六艺略”收录：“《论语》古二十一篇，出孔子壁中，两《子张》。《齐》二十二篇，多《问王》《知道》。《鲁》二十篇。”现传的《论语》中并未有《知道》这一篇章，借助修复师的“补天之手”，时隔1800年，随着南昌西汉海昏侯墓竹书《论语》的出土和修复，失传的《齐论》得到“重见天日”。"
             },
             {
                 src: "resource/section_4_1_9.jpg",
@@ -88,6 +129,10 @@
             {
                 src: "resource/section_4_1_11.jpg",
                 description: "圣迹图·删述六经，绢本设色，绘孔子及弟子“删述六经”情景。画面中表现的是孔子晚年回到鲁国，专心整理古代文献，以诗书礼乐教育弟子的情景。画面中右边孔子坐于书案前整理典籍文献，众弟子或立于案前聆听孔子教诲，或三三两两席地而坐，研读典籍，相互交流。 画面上部中间抄录《史记·孔子世家》中的部分内容，文曰：“哀公十四年丁巳，孔子年六十八，季康子使人迎孔子，孔子归鲁。然鲁终不用孔子，孔子亦不求仕，乃序书传礼记，删诗正乐，序易、彖、象、系、说卦、文言。弟子盖三千焉 ，身通六艺者七十二人。”题后有赞，曰：“辙环天下，道不可行。曰归乎来，修我典刑。三千其徒，七十高弟。删述六经，垂宪万世。”"
+            },
+            {
+                src: "resource/section_4_1.png",
+                description: "《论语》的译者"
             }
         ];
 
@@ -99,7 +144,60 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+
+            hideEvent();
+            hideEvent2();
+            hideVideo();
+            showImg();
+            showFullScreen();
+            if(index == 7){  //家谱
+                hideImg();
+                showEvent();
+                hideFullScreen();
+            }
+            else if(index == 10){  //简牍复活
+                hideImg();
+                showVideo();
+            }
+            else if(index == 14){  //论语译者
+                showEvent2();
+            }
         }
+
+        function showEvent(){
+            $(".imgContain4_1").show();
+        }
+        function hideEvent(){
+            $(".imgContain4_1").hide();
+        }
+        function showEvent2(){
+            $(".section411Btn").show();
+        }
+        function hideEvent2(){
+            $(".section411Btn").hide();
+        }
+        function showImg(){
+            $("#displayed-image").show();
+        }
+        function hideImg(){
+            $("#displayed-image").hide();
+        }
+        function showVideo(){
+            $(".showVideo").hide();
+            $("#displayed-video").show();
+        }
+        function hideVideo(){
+            $("#displayed-video").hide();
+            var videoObj = document.getElementById("displayed-video");
+            videoObj.pause();
+        }
+        function showFullScreen(){
+            $(".fullscreen-button").hide();
+        }
+        function hideFullScreen(){
+            $(".fullscreen-button").show();
+        }
+
 
         function showPrevImage() {
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
@@ -125,6 +223,17 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+
+        function resize(){
+            var containerWidth = $(".image-container").width();
+            var containerHeight = $(".image-container").height();
+            $(".showVideo").css("left", (containerWidth-60)/2);
+            $(".showVideo").css("top", (containerHeight-60)/2);
+        }
+        window.onresize = function(){
+            resize();
+        }
+        resize();
     </script>
 </body>
 </html>

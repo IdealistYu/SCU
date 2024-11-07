@@ -34,17 +34,29 @@
         </div>
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
+            <!-- 视频播放器 -->
+            <video id="displayed-video" width="100%" height="500" controls preload="metadata">
+                <!-- 添加视频源 -->
+                <source src="resource/video/lzkl.mp4" type="video/mp4">
+                <!-- 如果浏览器不支持 video 标签则显示的文字 -->
+                <p>抱歉，您的浏览器不支持 HTML5 视频播放。</p>
+            </video>
             <img id="displayed-image" src="./resource/section_0_2_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
         <div class="text-container">
-            <p id="image-description">宋 佚名 孔子见荣启期图</p>
+            <p id="image-description">古琴西乐</p>
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
+            {
+                src: "",
+                description: "古琴西乐"
+            },
             {
                 src: "resource/section_0_2_1.png",
                 description: "宋 佚名 孔子见荣启期图"
@@ -79,7 +91,17 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+
+            showVideo();
+            hideImg();
+            hideFullScreen();
+            if(index!=0){
+                hideVideo();
+                showImg();
+                showFullScreen();
+            }
         }
+        showImage(0);
 
         function showPrevImage() {
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
@@ -105,6 +127,27 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+
+        function showImg(){
+            $("#displayed-image").show();
+        }
+        function hideImg(){
+            $("#displayed-image").hide();
+        }
+        function showVideo(){
+            $("#displayed-video").show();
+        }
+        function hideVideo(){
+            $("#displayed-video").hide();
+            var videoObj = document.getElementById("displayed-video");
+            videoObj.pause();
+        }
+        function showFullScreen(){
+            $(".fullscreen-button").show();
+        }
+        function hideFullScreen(){
+            $(".fullscreen-button").hide();
+        }
     </script>
 </body>
 </html>

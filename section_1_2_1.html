@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天人合一</title>
+    <link rel="stylesheet" href="css/section_styles.css">
+</head>
+<body>
+    <div class="screen screen1" id="screen1">
+        <div class="content-container">
+            <img src="resource/section_1_index.png" class="home-image">
+            <div class="container">
+                <div id="textbox" class="caiBoxList">
+                    <div class="caiBox box1">
+                        <img src="resource/section_1_2_1_1.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box2">
+                        <img src="resource/section_1_2_1_2.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box3">
+                        <img src="resource/section_1_2_1_3.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box4">
+                        <img src="resource/section_1_2_1_4.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box5">
+                        <img src="resource/section_1_2_1_5.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box6">
+                        <img src="resource/section_1_2_1_6.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box7">
+                        <img src="resource/section_1_2_1_7.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box8">
+                        <img src="resource/section_1_2_1_8.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box9">
+                        <img src="resource/section_1_2_1_9.png" />
+                        <div class="caiAnswer">
+                            <p>是</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box10">
+                        <img src="resource/section_1_2_1_10.png" />
+                        <div class="caiAnswer">
+                            <p>不是，这是李白</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box11">
+                        <img src="resource/section_1_2_1_11.png" />
+                        <div class="caiAnswer">
+                            <p>不是，这是杜普</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box12">
+                        <img src="resource/section_1_2_1_12.png" />
+                        <div class="caiAnswer">
+                            <p>不是，这是王安石</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box13">
+                        <img src="resource/section_1_2_1_13.png" />
+                        <div class="caiAnswer">
+                            <p>不是，这是孟子</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box14">
+                        <img src="resource/section_1_2_1_14.png" />
+                        <div class="caiAnswer">
+                            <p>不是，这是老子</p>
+                        </div>
+                    </div>
+                    <div class="caiBox box15">
+                        <img src="resource/section_1_2_1_15.png" />
+                        <div class="caiAnswer">
+                            <p>不是，这是荀子</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow_body" onclick="window.location.href='section_1_2.html';">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        var showBox = function(){
+            var indexList1 = [1,2,3,4,5,6,7,8,9];
+            var indexList2 = [10,11,12,13,14,15];
+            var showIndex = new Array();
+            var kzNum = Math.floor(Math.random() * 3)+1;
+            for(var i =0; i < kzNum; i++){
+                var r = Math.floor(Math.random() * indexList1.length);
+                showIndex.push(indexList1[r]);
+                $(".caiBox.box"+indexList1[r]).css("display", "flex");
+                indexList1.splice(r,1);
+            }
+            for(var i =0; i < 6-kzNum; i++){
+                var r = Math.floor(Math.random() * indexList2.length);
+                showIndex.push(indexList2[r]);
+                $(".caiBox.box"+indexList2[r]).css("display", "flex");
+                indexList2.splice(r,1);
+            }
+            showIndex = randomSort(showIndex);
+            for(var i = 0; i < showIndex.length; i ++){
+                var $item = $(".caiBox.box"+showIndex[i]);
+                $(".caiBox.box"+showIndex[i]).remove();
+                $(".caiBoxList").append($item);
+            }
+        }
+        showBox();
+        //数组随机排序
+        function randomSort(arr) {
+            var len = arr.length;
+            for (var i = 0; i < len; i++) {
+                var randomIndex = Math.floor(Math.random() * (len - i)) + i;
+                var temp = arr[i];
+                arr[i] = arr[randomIndex];
+                arr[randomIndex] = temp;
+            }
+            return arr;
+        }
+        $(".caiBox img").click(function(){
+            $(this).siblings(".caiAnswer").show();
+        });
+
+    </script>
+</body>
+</html>

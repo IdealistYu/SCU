@@ -35,6 +35,10 @@
         <div class="image-container">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_1_2_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            
+            <a href="section_1_2_1.html" class="sectionBtnStyle section12Btn">找出你所看到的孔子画像</a>
+            <a href="section_1_2_2.html" class="sectionBtnStyle section13Btn">儒家教育的发展</a>
+
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
@@ -43,6 +47,8 @@
         </div>
     </div>
 
+    
+    <script src="js/jquery.js"></script>
     <script>
         const images = [
             {
@@ -92,6 +98,14 @@
             {
                 src: "resource/section_1_2_12.png",
                 description: "孔子像，清代果亲王允礼于清雍正十二年(1734)，送达赖喇嘛回西藏，途经西安时在西安碑林刻立的。此像属线刻，把人物勾画得栩栩如生。"
+            },
+            {
+                src: "resource/section_1_2_1_1.png",
+                description: "找出你所看到的孔子画像"
+            },
+            {
+                src: "resource/section_1_2_1_2.png",
+                description: "儒家教育的发展"
             }
         ];
 
@@ -103,6 +117,18 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+            
+            if(index == 12){
+                showEvent();
+            }else{
+                hideEvent();
+            }
+
+            if(index == 13){
+                showEvent2();
+            }else{
+                hideEvent2();
+            }
         }
 
         function showPrevImage() {
@@ -129,6 +155,21 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+
+        
+        function showEvent(){
+            $(".section12Btn").show();
+        }
+        function hideEvent(){
+            $(".section12Btn").hide();
+        }
+
+        function showEvent2(){
+            $(".section13Btn").show();
+        }
+        function hideEvent2(){
+            $(".section13Btn").hide();
+        }
     </script>
 </body>
 </html>

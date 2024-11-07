@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>国安 天下平</title>
     <link rel="stylesheet" href="css/part_styles.css">
+    <link rel="stylesheet" href="css/transform.css">
 </head>
 <body>
     <div class="container">
@@ -32,9 +33,19 @@
                 <img src="resource/button_6.png" alt="按钮6">
             </a>
         </div>
-        <div class="image-container">
+        <div class="image-container noborder">
             <button class="prev-button" onclick="showPrevImage()">&#10094;</button>
             <img id="displayed-image" src="./resource/section_4_2_1.png" alt="Image 1" onclick="toggleFullscreen(this)">
+            
+            <div class="fontContain4_2">
+                <div class="btnText" onclick="showImgAnswer()">
+                    <div>猜猜他们是谁？</div>
+                </div>
+            </div>
+            
+            <a href="section_4_2_1.html" class="sectionBtnStyle section421Btn">人类命运共同体</a>
+            <a href="section_4_2_2.html" class="sectionBtnStyle section422Btn">和谐万邦</a>
+            
             <button class="fullscreen-button" onclick="toggleFullscreen(document.getElementById('displayed-image'))">⤢</button>
             <button class="next-button" onclick="showNextImage()">&#10095;</button>
         </div>
@@ -43,6 +54,8 @@
         </div>
     </div>
 
+    <script src="js/jquery.js"></script>
+    <script src="js/transform.js"></script>
     <script>
         const images = [
             {
@@ -72,6 +85,18 @@
             {
                 src: "resource/section_4_2_7.png",
                 description: "《Abrégé historique des principaux traits de la vie de Confucius》（孔子画传），孔子未生之时，有麟吐玉书(天书)于阙里孔子之家.书上文字写着，“水精之子，继衰周而素王.”阙里，在洙泗之间，孔子时尚无阙里之名，其名始见于《汉书·梅福传》，至后汉始盛称孔子故里为阙里。由此可见“麟吐玉书”是后人附会之说。后因用为圣人诞生天降祥瑞的典故。《幼学琼林》卷二“老幼寿诞”:麟吐玉书，天生孔子之瑞。"
+            },
+            {
+                src: "resource/section_4_2_8.png",
+                description: "美国最高法院门楣上雕刻了来自中国、犹地亚和古希腊的先贤形象，其中哪一位是孔子呢？"
+            },
+            {
+                src: "resource/section_4_2/img1.png",
+                description: "人类命运共同体"
+            },
+            {
+                src: "resource/section_4_2/img2.png",
+                description: "和谐万邦"
             }
         ];
 
@@ -83,6 +108,24 @@
 
             imageElement.src = images[index].src;
             descriptionElement.textContent = images[index].description;
+            
+            if(index == 7){
+                showEvent();
+            }else{
+                hideEvent();
+            }
+            
+            if(index == 8){
+                showEvent2();
+            }else{
+                hideEvent2();
+            }
+            
+            if(index == 9){
+                showEvent3();
+            }else{
+                hideEvent3();
+            }
         }
 
         function showPrevImage() {
@@ -109,6 +152,38 @@
             const imageElement = document.getElementById('displayed-image');
             imageElement.style.objectFit = document.fullscreenElement ? 'contain' : 'fill';
         });
+        
+        function showEvent(){
+            $(".fontContain4_2").show();
+        }
+        function hideEvent(){
+            $(".fontContain4_2").hide();
+        }
+
+        function showEvent2(){
+            $(".section421Btn").show();
+        }
+        function hideEvent2(){
+            $(".section421Btn").hide();
+        }
+
+        function showEvent3(){
+            $(".section422Btn").show();
+        }
+        function hideEvent3(){
+            $(".section422Btn").hide();
+        }
+
+
+        function showImgAnswer(){
+            if($(".fontContain4_2 .btnText").text() == "我知道了"){
+                $(".fontContain4_2 .btnText").text("猜猜他们是谁？");
+                $("#displayed-image").attr("src", "resource/section_4_2_8.png");
+            }else{
+                $(".fontContain4_2 .btnText").text("我知道了");
+                $("#displayed-image").attr("src", "resource/section_4_2_8_1.png");
+            }
+        }
     </script>
 </body>
 </html>
